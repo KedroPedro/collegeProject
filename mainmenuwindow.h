@@ -51,6 +51,8 @@ private slots:
 
     void on_PBServiceTableDelete_clicked();
 
+    void on_PBServiceTableEdit_clicked();
+
 private:
     Ui::mainmenuwindow *ui;
 };

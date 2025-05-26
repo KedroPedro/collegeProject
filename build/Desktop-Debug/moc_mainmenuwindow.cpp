@@ -55,7 +55,8 @@ static constexpr auto qt_meta_stringdata_ZN14mainmenuwindowE = QtMocHelpers::str
     "on_PBPatientTableDelete_clicked",
     "on_PBPatientTableEdit_clicked",
     "on_PBServiceTableAdd_clicked",
-    "on_PBServiceTableDelete_clicked"
+    "on_PBServiceTableDelete_clicked",
+    "on_PBServiceTableEdit_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -67,7 +68,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,25 +76,27 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   92,    2, 0x0a,    1 /* Public */,
-       5,    0,   95,    2, 0x08,    3 /* Private */,
-       6,    0,   96,    2, 0x08,    4 /* Private */,
-       7,    1,   97,    2, 0x08,    5 /* Private */,
-      10,    0,  100,    2, 0x08,    7 /* Private */,
-      11,    0,  101,    2, 0x08,    8 /* Private */,
-      12,    0,  102,    2, 0x08,    9 /* Private */,
-      13,    0,  103,    2, 0x08,   10 /* Private */,
-      14,    0,  104,    2, 0x08,   11 /* Private */,
-      15,    0,  105,    2, 0x08,   12 /* Private */,
-      16,    0,  106,    2, 0x08,   13 /* Private */,
-      17,    0,  107,    2, 0x08,   14 /* Private */,
-      18,    0,  108,    2, 0x08,   15 /* Private */,
+       1,    1,   98,    2, 0x0a,    1 /* Public */,
+       5,    0,  101,    2, 0x08,    3 /* Private */,
+       6,    0,  102,    2, 0x08,    4 /* Private */,
+       7,    1,  103,    2, 0x08,    5 /* Private */,
+      10,    0,  106,    2, 0x08,    7 /* Private */,
+      11,    0,  107,    2, 0x08,    8 /* Private */,
+      12,    0,  108,    2, 0x08,    9 /* Private */,
+      13,    0,  109,    2, 0x08,   10 /* Private */,
+      14,    0,  110,    2, 0x08,   11 /* Private */,
+      15,    0,  111,    2, 0x08,   12 /* Private */,
+      16,    0,  112,    2, 0x08,   13 /* Private */,
+      17,    0,  113,    2, 0x08,   14 /* Private */,
+      18,    0,  114,    2, 0x08,   15 /* Private */,
+      19,    0,  115,    2, 0x08,   16 /* Private */,
 
  // slots: parameters
     QMetaType::Int, 0x80000000 | 3,    4,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -143,6 +146,8 @@ Q_CONSTINIT const QMetaObject mainmenuwindow::staticMetaObject = { {
         // method 'on_PBServiceTableAdd_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_PBServiceTableDelete_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_PBServiceTableEdit_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -167,6 +172,7 @@ void mainmenuwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 10: _t->on_PBPatientTableEdit_clicked(); break;
         case 11: _t->on_PBServiceTableAdd_clicked(); break;
         case 12: _t->on_PBServiceTableDelete_clicked(); break;
+        case 13: _t->on_PBServiceTableEdit_clicked(); break;
         default: ;
         }
     }
@@ -203,14 +209,14 @@ int mainmenuwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

@@ -14,6 +14,7 @@ SOURCES += \
     database.cpp \
     datatable.cpp \
     editpatientwindow.cpp \
+    editservicewindow.cpp \
     main.cpp \
     authorizationwindow.cpp \
     mainmenuwindow.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     database.h \
     datatable.h \
     editpatientwindow.h \
+    editservicewindow.h \
     mainmenuwindow.h \
     passwordhasher.h \
     picture.h \
@@ -43,6 +45,7 @@ FORMS += \
     addservicewindow.ui \
     authorizationwindow.ui \
     editpatientwindow.ui \
+    editservicewindow.ui \
     mainmenuwindow.ui \
     regadminconfirm.ui \
     regfullinfo.ui \

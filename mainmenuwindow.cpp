@@ -6,6 +6,7 @@
 #include "addpatientwindow.h"
 #include "editpatientwindow.h"
 #include "addservicewindow.h"
+#include "editservicewindow.h"
 
 #include <QTableView>
 #include <QStandardItemModel>
@@ -211,10 +212,42 @@ void mainmenuwindow::on_PBServiceTableAdd_clicked()
 
 void mainmenuwindow::on_PBServiceTableDelete_clicked()
 {
-    int result = QMessageBox::question(this,"Подтверждение","Вы уверены что хотите удалить данного пациента?",
+    int result = QMessageBox::question(this,"Подтверждение","Вы уверены что хотите удалить данную процедуру?",
                                        QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
     if(result == QMessageBox::No){
         return;
     }
+
+    int serviceId = getId(ui->TVServices);
+    if(serviceId == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна процедура не была выбрана.");
+        return;
+    }
+
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("delete from "+Database().getDbName()+".services where id = :id");
+    query.bindValue(":id",serviceId);
+    query.exec();
+
+    query.prepare("delete from "+Database().getDbName()+".visitservices where id = :id");
+    query.bindValue(":id",serviceId);
+    query.exec();
+
+    ui->LServiceDescription->setText("");
+    ui->LServiceDuration->setText("");
+    ui->LServiceName->setText("");
+    ui->LServicePrice->setText("");
+    on_PBServices_clicked();
+
+
+}
+
+
+void mainmenuwindow::on_PBServiceTableEdit_clicked()
+{
+    EditServiceWindow window(getId(ui->TVServices));
+    window.setModal(true);
+    window.exec();
+    window.deleteLater();
 }
 
