@@ -535,7 +535,8 @@ editpatientwindow.o: ../../editpatientwindow.cpp ../../editpatientwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o editpatientwindow.o ../../editpatientwindow.cpp
 
 editservicewindow.o: ../../editservicewindow.cpp ../../editservicewindow.h \
-		ui_editservicewindow.h
+		ui_editservicewindow.h \
+		../../database.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o editservicewindow.o ../../editservicewindow.cpp
 
 main.o: ../../main.cpp ../../authorizationwindow.h \
@@ -558,7 +559,8 @@ mainmenuwindow.o: ../../mainmenuwindow.cpp ../../mainmenuwindow.h \
 		../../database.h \
 		../../addpatientwindow.h \
 		../../editpatientwindow.h \
-		../../addservicewindow.h
+		../../addservicewindow.h \
+		../../editservicewindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenuwindow.o ../../mainmenuwindow.cpp
 
 passwordhasher.o: ../../passwordhasher.cpp ../../passwordhasher.h \
