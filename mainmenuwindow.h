@@ -2,7 +2,7 @@
 #define MAINMENUWINDOW_H
 
 #include <QDialog>
-
+#include <QTableView>
 
 namespace Ui {
 class mainmenuwindow;
@@ -17,7 +17,7 @@ public:
     ~mainmenuwindow();
 
 public slots:
-    int getPatientId();
+    int getId(QTableView *table);
 private slots:
 
 
@@ -48,6 +48,8 @@ private slots:
 
 
     void on_PBServiceTableAdd_clicked();
+
+    void on_PBServiceTableDelete_clicked();
 
 private:
     Ui::mainmenuwindow *ui;

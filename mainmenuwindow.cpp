@@ -16,6 +16,7 @@
 #include <QStringList>
 #include <QMessageBox>
 #include <QSqlRecord>
+#include <QTableView>
 
 
 mainmenuwindow::mainmenuwindow(QWidget *parent)
@@ -58,7 +59,7 @@ void mainmenuwindow::on_PBPacientList_clicked()
 
 void mainmenuwindow::on_TVPatients_doubleClicked(const QModelIndex &index)
 {
-    int patientId = getPatientId();
+    int patientId = getId(ui->TVPatients);
     if(patientId == -1){
         QMessageBox::warning(this,"Ошибка","Ни один пациент не был выделен");
         return;
@@ -143,7 +144,7 @@ void mainmenuwindow::on_PBPatientTableDelete_clicked()
         return;
     }
 
-    int patientId = getPatientId();
+    int patientId = getId(ui->TVPatients);
     if(patientId == -1){
         QMessageBox::warning(this,"Ошибка","Ни один пациент не был выделен");
         return;
@@ -174,7 +175,7 @@ void mainmenuwindow::on_PBPatientTableDelete_clicked()
 
 void mainmenuwindow::on_PBPatientTableEdit_clicked()
 {
-    int patientId = getPatientId();
+    int patientId = getId(ui->TVPatients);
     if(patientId == -1){
         QMessageBox::warning(this,"Ошибка","Ни один пациент не был выделен");
         return;
@@ -185,14 +186,14 @@ void mainmenuwindow::on_PBPatientTableEdit_clicked()
     on_PBPacientList_clicked();
 }
 
-int mainmenuwindow::getPatientId(){
-    QModelIndex currentPatient = ui->TVPatients->currentIndex();
-    if(!currentPatient.isValid()){
+int mainmenuwindow::getId(QTableView *table){
+    QModelIndex currentItem = table->currentIndex();
+    if(!currentItem.isValid()){
         return -1;
     }
-    int patientId = QVariant(currentPatient.model()->data(currentPatient.model()->index(currentPatient.row(),0,QModelIndex()))).toInt();
+    int id = QVariant(currentItem.model()->data(currentItem.model()->index(currentItem.row(),0,QModelIndex()))).toInt();
 
-    return patientId;
+    return id;
 }
 
 
@@ -205,5 +206,15 @@ void mainmenuwindow::on_PBServiceTableAdd_clicked()
     window.exec();
     window.deleteLater();
     on_PBServices_clicked();
+}
+
+
+void mainmenuwindow::on_PBServiceTableDelete_clicked()
+{
+    int result = QMessageBox::question(this,"Подтверждение","Вы уверены что хотите удалить данного пациента?",
+                                       QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
+    if(result == QMessageBox::No){
+        return;
+    }
 }
 
