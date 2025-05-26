@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AuthorizationWindow</class>
+ <widget class="QMainWindow" name="AuthorizationWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AuthorizationWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:white</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>320</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>320</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget {
+    background: white;
+    border: 2px solid #3E7C59;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+
+QTabWidget::pane {
+    border: none;
+    margin-top: 10px; 
+    background: white;
+    border-radius: 25px; 
+}
+
+QTabBar::tab {
+    background: white;
+    color: black;
+    border: 2px solid #3E7C59;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 8px 16px;
+    margin-right: 5px;
+}
+
+QTabBar::tab:selected {
+    background: #3E7C59;
+    color: white;
+}
+
+QTabBar::tab:hover {
+    background: #E0F0E7;
+}</string>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::TabPosition::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::TabShape::Triangular</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Вход</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="2" column="0" colspan="2">
+         <widget class="QPushButton" name="PBEnterLogin">
+          <property name="styleSheet">
+           <string notr="true">
+QPushButton{
+	height: 30;
+	margin: 10 70;
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #3E7C59;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+          </property>
+          <property name="text">
+           <string>Вход</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QLineEdit" name="LEPasswordLogin">
+          <property name="styleSheet">
+           <string notr="true">border: 0px solid red;
+border-bottom: 2px solid black;
+background: white;
+height: 25px;
+margin: 10 25;
+
+</string>
+          </property>
+          <property name="maxLength">
+           <number>50</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Пароль</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLineEdit" name="LEUserLogin">
+          <property name="styleSheet">
+           <string notr="true">border: 0px solid red;
+border-bottom: 2px solid black;
+background: white;
+height: 25px;
+margin:10 25</string>
+          </property>
+          <property name="maxLength">
+           <number>50</number>
+          </property>
+          <property name="placeholderText">
+           <string>Логин</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Регистрация</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="3" column="0">
+         <widget class="QLineEdit" name="LEPasswordRegAgain">
+          <property name="styleSheet">
+           <string notr="true">border: 0px solid red;
+border-bottom: 2px solid black;
+background: white;
+height: 25px;
+margin: 10 25</string>
+          </property>
+          <property name="maxLength">
+           <number>50</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Повторите пароль</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="LEUserReg">
+          <property name="styleSheet">
+           <string notr="true">border: 0px solid red;
+border-bottom: 2px solid black;
+background: white;
+height: 25px;
+margin: 10 25</string>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>32767</number>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>Логин</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="PBRegisterReg">
+          <property name="styleSheet">
+           <string notr="true">
+QPushButton{
+	height: 30;
+	margin: 10 60;
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #3E7C59;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+          </property>
+          <property name="text">
+           <string>Регистрация</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLineEdit" name="LEPasswordReg">
+          <property name="styleSheet">
+           <string notr="true">border: 0px solid red;
+border-bottom: 2px solid black;
+background: white;
+height: 25px;
+margin: 10 25</string>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>32767</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Пароль</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>300</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+    background-color: #3E7C59;
+
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    color: white;
+    margin: 2px;
+}
+
+QMenuBar::item:selected {
+    background-color: #4CAF6B;
+    color: white;
+}
+
+QMenuBar::item:pressed {
+    background-color: #2A5A40;
+}
+
+
+QMenu {
+    background-color: white;
+    border: 2px solid #3E7C59;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+QMenu::item {
+    color: black;
+	padding: 2px 25px;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+QMenu::item:selected {
+    background-color: #4CAF6B;
+    color: white;
+}</string>
+   </property>
+   <widget class="QMenu" name="menu_2">
+    <property name="styleSheet">
+     <string notr="true">color:black;
+bakcground:red;</string>
+    </property>
+    <property name="title">
+     <string>...</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::PreventContextMenu</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="actionlkjlj">
+   <property name="text">
+    <string>lkjlj</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
