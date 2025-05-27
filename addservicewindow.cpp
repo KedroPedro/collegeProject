@@ -14,14 +14,17 @@ AddServiceWindow::AddServiceWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QRegularExpression expPrice("^\\d*[,]?\\d*$");
+    QRegularExpression expPrice("^\\d{1,7}(\\.\\d{0,2})?$");
     QRegularExpressionValidator *priceValidator = new QRegularExpressionValidator(expPrice,this);
 
-    QRegularExpression expText("[а-яА-Я0-9\s]+");
+    QRegularExpression expText("^[а-яА-Я0-9\\s]+$");
     QRegularExpressionValidator *textValidator = new QRegularExpressionValidator(expText,this);
 
+    QRegularExpression expNum("^[0-9]+$");
+    QRegularExpressionValidator *numbValidator = new QRegularExpressionValidator(expNum,this);
+
     ui->LEName->setValidator(textValidator);
-    ui->LEDuration->setValidator(textValidator);
+    ui->LEDuration->setValidator(numbValidator);
     ui->LEPrice->setValidator(priceValidator);
 }
 
@@ -44,11 +47,12 @@ void AddServiceWindow::on_PBAdd_clicked()
     QString price = ui->LEPrice->text();
 
     bool errFlag = false;
-    if(name.isEmpty())              errFlag = true;
-    else if(duration.isEmpty())     errFlag = true;
-    else if(description.isEmpty())  errFlag = true;
-    else if(price.isEmpty())        errFlag = true;
-    else if(price.length() > 10)    errFlag = true;
+    if(name.isEmpty())                      errFlag = true;
+    else if(duration.isEmpty())             errFlag = true;
+    else if(description.isEmpty())          errFlag = true;
+    else if(price.isEmpty())                errFlag = true;
+    else if(price.length() > 10)            errFlag = true;
+    else if(price[price.length()-1] == ".") errFlag = true;
 
     if(errFlag){
         QMessageBox::warning(this,"Ошибка","Все поля должны быть заполнены корректно.");

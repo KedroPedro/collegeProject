@@ -249,5 +249,6 @@ void mainmenuwindow::on_PBServiceTableEdit_clicked()
     window.setModal(true);
     window.exec();
     window.deleteLater();
+    on_PBServices_clicked();
 }
 
