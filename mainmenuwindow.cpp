@@ -8,6 +8,7 @@
 #include "addservicewindow.h"
 #include "editservicewindow.h"
 
+#include <QSqlError>
 #include <QTableView>
 #include <QStandardItemModel>
 #include <QSqlDatabase>
@@ -26,11 +27,32 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    Picture(&*ui->LProfilePicture,"pictures/derevya.jpg",200);
-    Picture(&*ui->LCheckMark,"pictures/blackCheckMark.png");
-    Picture(&*ui->LClock,"pictures/blackClock.png");
-    Picture(&*ui->LLens,"picture/blackLens.png");
 
+    Picture(ui->LCheckMark,"pictures/blackCheckMark.png");
+    Picture(ui->LClock,"pictures/blackClock.png");
+    Picture(ui->LLens,"picture/blackLens.png");
+
+    QString userLogin = parent->findChild<QLineEdit*>("LEUserLogin")->text();
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("select userfullname,userpermission"
+                  " from "+Database().getDbName()+".users where username = :username");
+    query.bindValue(":username",userLogin);
+    query.exec();
+    query.next();
+
+    QString permission = query.value(1).toString();
+    QString picturePath = "";
+
+    if(permission == "Пользователь"){
+        picturePath = "pictures/user.png";
+    }else{
+        picturePath = "pictures/administrator.png";
+    }
+
+    ui->LProfileUsername->setText(userLogin);
+    ui->LProfileName->setText(query.value(0).toString());
+    ui->LProfilePermission->setText(query.value(1).toString());
+    Picture(ui->LProfilePicture,picturePath,200);
     QRegularExpression exp("[а-яА-Я]+");
     QRegularExpressionValidator *validator = new QRegularExpressionValidator(exp,this);
 
@@ -40,11 +62,13 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
 mainmenuwindow::~mainmenuwindow()
 {
     delete ui;
+
 }
 
 void mainmenuwindow::on_PBMainMenu_clicked()
 {
     ui->SWMenus->setCurrentWidget(ui->PMainMenu);
+    ui->LMenuName->setText("Главное меню");
 }
 
 
@@ -56,6 +80,7 @@ void mainmenuwindow::on_PBPacientList_clicked()
     QStringList headers =  {"Номер","Имя","Фамилия","Отчество"};
     DataTable(ui->TVPatients,"id,patientname,patientsurname,patientpatronymic",Database().getDbName() +".patients",headers);
     ui->TVPatients->show();
+    ui->LMenuName->setText("Список пациентов");
 }
 
 void mainmenuwindow::on_TVPatients_doubleClicked(const QModelIndex &index)
@@ -81,7 +106,7 @@ void mainmenuwindow::on_TVPatients_doubleClicked(const QModelIndex &index)
 
     QStringList headers = {"Номер","Дата визита"};
     DataTable(ui->TVPatientVisitDate,"id,visitdate",Database().getDbName()
-                                                          + ".visits where visitpatientid = "+QVariant(patientId).toString(),headers);
+            + ".visits where visitpatientid = "+QVariant(patientId).toString(),headers);
     ui->TVPatientVisitDate->show();
 
 }
@@ -92,7 +117,7 @@ void mainmenuwindow::on_PBFindPatient_clicked()
     surname = surname.trimmed().split(" ")[0];
 
     if(surname == ""){
-        QMessageBox::warning(this,"Ошибка","Поле не должно быть путым");
+        on_PBPacientList_clicked();
         return;
     }
 
@@ -110,13 +135,15 @@ void mainmenuwindow::on_PBServices_clicked()
     QStringList headers = {"Номер","Название процедуры"};
     DataTable(ui->TVServices,"id,servicename",Database().getDbName()+".services",headers);
     ui->SWMenus->setCurrentWidget(ui->PServices);
+    ui->LMenuName->setText("Список услуг");
+    Picture(ui->LLensSearch,"pictures/blackLens.png");
 }
 
 
 void mainmenuwindow::on_PBAppointment_clicked()
 {
     ui->SWMenus->setCurrentWidget(ui->PAppointment);
-
+    ui->LMenuName->setText("Записи на прием");
 }
 
 
@@ -239,7 +266,8 @@ void mainmenuwindow::on_PBServiceTableDelete_clicked()
     ui->LServicePrice->setText("");
     on_PBServices_clicked();
 
-
+    DataTable(ui->TVVisitServices,"","",{});
+    ui->TVVisitServices->show();
 }
 
 
@@ -250,5 +278,57 @@ void mainmenuwindow::on_PBServiceTableEdit_clicked()
     window.exec();
     window.deleteLater();
     on_PBServices_clicked();
+}
+
+
+void mainmenuwindow::on_TVServices_doubleClicked(const QModelIndex &index)
+{
+    int serviceId = getId(ui->TVServices);
+    if(serviceId == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна процедура не была выделена");
+        return;
+    }
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("select servicedescription,serviceduration,servicename,serviceprice from "
+                  ""+Database().getDbName()+".services where id = :id");
+    query.bindValue(":id",serviceId);
+    query.exec();
+    query.next();
+
+    QSqlRecord record = query.record();
+    ui->LServiceDescription->setText(record.value(0).toString());
+    ui->LServiceDuration->setText(record.value(1).toString());
+    ui->LServiceName->setText(record.value(2).toString());
+    ui->LServicePrice->setText(record.value(3).toString());
+
+    QString db = Database().getDbName();
+    QStringList headers = {"Дата","Процедура"};
+
+    DataTable(ui->TVVisitServices,db+".visits.visitdate "
+            ", "+db+".services.servicename" ,
+              db+".visitservices "
+            "join "+db+".visits on "+db+".visitservices.visitservicesvisitid = "+db+".visits.id "
+            "join "+db+".services on "+db+".visitservices.visitservicesserviceid = "+db+".services.id "
+            "where "+db+".visitservices.visitservicesserviceid = "+QVariant(serviceId).toString(),headers);
+    ui->TVVisitServices->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+
+}
+
+
+void mainmenuwindow::on_PBServiceFind_clicked()
+{
+    QString serviceName = ui->LEServiceName->text().trimmed();
+
+
+    if(serviceName == ""){
+        on_PBServices_clicked();
+        return;
+    }
+
+    QStringList headers = {"Номер","Название процедуры"};
+
+    DataTable(ui->TVServices,"id,servicename",Database().getDbName()+".services where servicename = '"+serviceName+"'",headers);
+
 }
 

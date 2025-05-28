@@ -68,10 +68,11 @@ void AuthorizationWindow::on_PBEnterLogin_clicked()
     }
 
     this->close();
-    mainmenuwindow mmwindow;
+    mainmenuwindow mmwindow(this);
     mmwindow.setModal(true);
     mmwindow.setWindowState(Qt::WindowMaximized);
     mmwindow.exec();
+
 
 }
 

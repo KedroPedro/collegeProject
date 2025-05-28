@@ -39,7 +39,7 @@ public:
     QGridLayout *gridLayout_3;
     QWidget *widget_5;
     QGridLayout *gridLayout_4;
-    QLabel *label;
+    QLabel *LMenuName;
     QWidget *widget_4;
     QGridLayout *gridLayout;
     QPushButton *PBAppointment;
@@ -75,9 +75,9 @@ public:
     QLabel *LProfilePicture;
     QWidget *widget_8;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_3;
+    QLabel *LProfileName;
+    QLabel *LProfileUsername;
+    QLabel *LProfilePermission;
     QStackedWidget *SWMenus;
     QWidget *PAppointment;
     QVBoxLayout *verticalLayout_5;
@@ -197,9 +197,9 @@ public:
     QGridLayout *gridLayout_29;
     QWidget *widget_43;
     QGridLayout *gridLayout_28;
-    QLineEdit *LESecondName_6;
-    QPushButton *PBFindPatient_6;
-    QLabel *LLens_6;
+    QLineEdit *LEServiceName;
+    QPushButton *PBServiceFind;
+    QLabel *LLensSearch;
     QWidget *widget_42;
     QGridLayout *gridLayout_22;
     QTableView *TVServices;
@@ -246,7 +246,7 @@ public:
     QGridLayout *gridLayout_33;
     QWidget *widget_59;
     QHBoxLayout *horizontalLayout_8;
-    QTableWidget *tableWidget;
+    QTableView *TVVisitServices;
     QWidget *widget_35;
 
     void setupUi(QDialog *mainmenuwindow)
@@ -298,14 +298,16 @@ public:
 ""));
         gridLayout_4 = new QGridLayout(widget_5);
         gridLayout_4->setObjectName("gridLayout_4");
-        label = new QLabel(widget_5);
-        label->setObjectName("label");
+        gridLayout_4->setContentsMargins(-1, 3, -1, -1);
+        LMenuName = new QLabel(widget_5);
+        LMenuName->setObjectName("LMenuName");
+        LMenuName->setMinimumSize(QSize(0, 20));
         QFont font;
         font.setPointSize(12);
-        label->setFont(font);
-        label->setStyleSheet(QString::fromUtf8("color:white"));
+        LMenuName->setFont(font);
+        LMenuName->setStyleSheet(QString::fromUtf8("color:white"));
 
-        gridLayout_4->addWidget(label, 0, 0, 1, 1, Qt::AlignmentFlag::AlignHCenter);
+        gridLayout_4->addWidget(LMenuName, 0, 0, 1, 1, Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop);
 
 
         gridLayout_3->addWidget(widget_5, 1, 1, 1, 1);
@@ -557,23 +559,23 @@ public:
         widget_8->setObjectName("widget_8");
         verticalLayout_2 = new QVBoxLayout(widget_8);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        label_4 = new QLabel(widget_8);
-        label_4->setObjectName("label_4");
-        label_4->setStyleSheet(QString::fromUtf8("color:white"));
+        LProfileName = new QLabel(widget_8);
+        LProfileName->setObjectName("LProfileName");
+        LProfileName->setStyleSheet(QString::fromUtf8("color:white"));
 
-        verticalLayout_2->addWidget(label_4);
+        verticalLayout_2->addWidget(LProfileName);
 
-        label_5 = new QLabel(widget_8);
-        label_5->setObjectName("label_5");
-        label_5->setStyleSheet(QString::fromUtf8("color:white"));
+        LProfileUsername = new QLabel(widget_8);
+        LProfileUsername->setObjectName("LProfileUsername");
+        LProfileUsername->setStyleSheet(QString::fromUtf8("color:white"));
 
-        verticalLayout_2->addWidget(label_5);
+        verticalLayout_2->addWidget(LProfileUsername);
 
-        label_3 = new QLabel(widget_8);
-        label_3->setObjectName("label_3");
-        label_3->setStyleSheet(QString::fromUtf8("color:white"));
+        LProfilePermission = new QLabel(widget_8);
+        LProfilePermission->setObjectName("LProfilePermission");
+        LProfilePermission->setStyleSheet(QString::fromUtf8("color:white"));
 
-        verticalLayout_2->addWidget(label_3);
+        verticalLayout_2->addWidget(LProfilePermission);
 
 
         horizontalLayout->addWidget(widget_8);
@@ -1392,19 +1394,19 @@ public:
         gridLayout_28 = new QGridLayout(widget_43);
         gridLayout_28->setObjectName("gridLayout_28");
         gridLayout_28->setContentsMargins(9, -1, -1, -1);
-        LESecondName_6 = new QLineEdit(widget_43);
-        LESecondName_6->setObjectName("LESecondName_6");
-        LESecondName_6->setMinimumSize(QSize(0, 40));
-        LESecondName_6->setFont(font2);
-        LESecondName_6->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
+        LEServiceName = new QLineEdit(widget_43);
+        LEServiceName->setObjectName("LEServiceName");
+        LEServiceName->setMinimumSize(QSize(0, 40));
+        LEServiceName->setFont(font2);
+        LEServiceName->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
 "border-bottom: 2px solid black;"));
 
-        gridLayout_28->addWidget(LESecondName_6, 0, 1, 1, 1);
+        gridLayout_28->addWidget(LEServiceName, 0, 1, 1, 1);
 
-        PBFindPatient_6 = new QPushButton(widget_43);
-        PBFindPatient_6->setObjectName("PBFindPatient_6");
-        PBFindPatient_6->setMinimumSize(QSize(0, 40));
-        PBFindPatient_6->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        PBServiceFind = new QPushButton(widget_43);
+        PBServiceFind->setObjectName("PBServiceFind");
+        PBServiceFind->setMinimumSize(QSize(0, 40));
+        PBServiceFind->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	border-radius:20;\n"
 "	background-color:white;\n"
 "	color:black;\n"
@@ -1415,16 +1417,16 @@ public:
 "QPushButton:hover{\n"
 "        background-color:#ACACAC;\n"
 "}"));
-        PBFindPatient_6->setAutoDefault(false);
+        PBServiceFind->setAutoDefault(false);
 
-        gridLayout_28->addWidget(PBFindPatient_6, 0, 2, 1, 1);
+        gridLayout_28->addWidget(PBServiceFind, 0, 2, 1, 1);
 
-        LLens_6 = new QLabel(widget_43);
-        LLens_6->setObjectName("LLens_6");
-        LLens_6->setMinimumSize(QSize(40, 40));
-        LLens_6->setMaximumSize(QSize(40, 40));
+        LLensSearch = new QLabel(widget_43);
+        LLensSearch->setObjectName("LLensSearch");
+        LLensSearch->setMinimumSize(QSize(40, 40));
+        LLensSearch->setMaximumSize(QSize(40, 40));
 
-        gridLayout_28->addWidget(LLens_6, 0, 0, 1, 1);
+        gridLayout_28->addWidget(LLensSearch, 0, 0, 1, 1);
 
 
         gridLayout_29->addWidget(widget_43, 0, 0, 1, 1);
@@ -1768,12 +1770,34 @@ public:
         widget_59->setStyleSheet(QString::fromUtf8("background:#3E7C59;"));
         horizontalLayout_8 = new QHBoxLayout(widget_59);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
-        tableWidget = new QTableWidget(widget_59);
-        tableWidget->setObjectName("tableWidget");
-        tableWidget->setStyleSheet(QString::fromUtf8("background:white;\n"
-""));
+        horizontalLayout_8->setContentsMargins(18, -1, 18, -1);
+        TVVisitServices = new QTableView(widget_59);
+        TVVisitServices->setObjectName("TVVisitServices");
+        TVVisitServices->setStyleSheet(QString::fromUtf8("QHeaderView::section {\n"
+"    background-color: #4C5958;  \n"
+"    color: white;               \n"
+"    padding: 5px;\n"
+"    border: none;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    background-color: #3E7C59;\n"
+"    border: 0px solid #3E7C59; \n"
+"    border-radius: 30px;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    background-color: white;    \n"
+"	color:black;\n"
+"    border: 1px solid #e0e0e0; \n"
+"    border-radius: 4px;\n"
+"\n"
+"}"));
+        TVVisitServices->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TVVisitServices->horizontalHeader()->setStretchLastSection(true);
 
-        horizontalLayout_8->addWidget(tableWidget);
+        horizontalLayout_8->addWidget(TVVisitServices);
 
 
         gridLayout_33->addWidget(widget_59, 0, 0, 1, 1);
@@ -1811,7 +1835,7 @@ public:
     void retranslateUi(QDialog *mainmenuwindow)
     {
         mainmenuwindow->setWindowTitle(QCoreApplication::translate("mainmenuwindow", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("mainmenuwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
+        LMenuName->setText(QCoreApplication::translate("mainmenuwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
         PBAppointment->setText(QCoreApplication::translate("mainmenuwindow", "\320\227\320\260\320\277\320\270\321\201\320\270 \320\275\320\260 \320\277\321\200\320\270\320\265\320\274", nullptr));
         PBMainMenu->setText(QCoreApplication::translate("mainmenuwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
         PBPacientList->setText(QCoreApplication::translate("mainmenuwindow", "\320\241\320\277\320\270\321\201\320\276\320\272 \320\277\320\260\321\206\320\270\320\265\320\275\321\202\320\276\320\262", nullptr));
@@ -1822,9 +1846,9 @@ public:
         LClock->setText(QCoreApplication::translate("mainmenuwindow", "TextLabel", nullptr));
         label_8->setText(QCoreApplication::translate("mainmenuwindow", "TextLabel", nullptr));
         LProfilePicture->setText(QString());
-        label_4->setText(QCoreApplication::translate("mainmenuwindow", "Name:", nullptr));
-        label_5->setText(QCoreApplication::translate("mainmenuwindow", "User:", nullptr));
-        label_3->setText(QCoreApplication::translate("mainmenuwindow", "Permission:", nullptr));
+        LProfileName->setText(QString());
+        LProfileUsername->setText(QString());
+        LProfilePermission->setText(QString());
         label_15->setText(QCoreApplication::translate("mainmenuwindow", "\320\222\321\200\320\260\321\207", nullptr));
         LServicePrice_3->setText(QString());
         LServicePrice_2->setText(QString());
@@ -1849,9 +1873,9 @@ public:
         LFullName->setText(QString());
         LAddress->setText(QString());
         label_2->setText(QCoreApplication::translate("mainmenuwindow", "\320\244\320\230\320\236", nullptr));
-        LESecondName_6->setPlaceholderText(QCoreApplication::translate("mainmenuwindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\204\320\260\320\274\320\270\320\273\320\270\321\216", nullptr));
-        PBFindPatient_6->setText(QCoreApplication::translate("mainmenuwindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
-        LLens_6->setText(QString());
+        LEServiceName->setPlaceholderText(QCoreApplication::translate("mainmenuwindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \320\277\321\200\320\276\321\206\320\265\320\264\321\203\321\200\321\213", nullptr));
+        PBServiceFind->setText(QCoreApplication::translate("mainmenuwindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
+        LLensSearch->setText(QString());
         PBServiceTableAdd->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
         PBServiceTableEdit->setText(QCoreApplication::translate("mainmenuwindow", "\320\240\320\265\320\264\320\260\320\272\321\202\320\270\321\200\320\276\320\262\320\260\321\202\321\214", nullptr));
         PBServiceTableDelete->setText(QCoreApplication::translate("mainmenuwindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));

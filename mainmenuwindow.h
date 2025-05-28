@@ -53,6 +53,10 @@ private slots:
 
     void on_PBServiceTableEdit_clicked();
 
+    void on_TVServices_doubleClicked(const QModelIndex &index);
+
+    void on_PBServiceFind_clicked();
+
 private:
     Ui::mainmenuwindow *ui;
 };
