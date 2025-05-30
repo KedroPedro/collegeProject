@@ -105,7 +105,7 @@ void mainmenuwindow::on_TVPatients_doubleClicked(const QModelIndex &index)
     ui->LPhoneNumber->setText(  record.value(6).toString());
 
     QStringList headers = {"Номер","Дата визита"};
-    DataTable(ui->TVPatientVisitDate,"id,visitdate",Database().getDbName()
+    DataTable(ui->TVPatientVisitDate,"id,DATE_FORMAT(" + Database().getDbName() + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate",Database().getDbName()
             + ".visits where visitpatientid = "+QVariant(patientId).toString(),headers);
     ui->TVPatientVisitDate->show();
 
@@ -144,6 +144,8 @@ void mainmenuwindow::on_PBAppointment_clicked()
 {
     ui->SWMenus->setCurrentWidget(ui->PAppointment);
     ui->LMenuName->setText("Записи на прием");
+    on_CWAppointments_clicked(QDate::currentDate());
+    ui->TVAppointments->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 
@@ -304,7 +306,7 @@ void mainmenuwindow::on_TVServices_doubleClicked(const QModelIndex &index)
     QString db = Database().getDbName();
     QStringList headers = {"Дата","Процедура"};
 
-    DataTable(ui->TVVisitServices,db+".visits.visitdate "
+    DataTable(ui->TVVisitServices,"DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate"
             ", "+db+".services.servicename" ,
               db+".visitservices "
             "join "+db+".visits on "+db+".visitservices.visitservicesvisitid = "+db+".visits.id "
@@ -329,6 +331,63 @@ void mainmenuwindow::on_PBServiceFind_clicked()
     QStringList headers = {"Номер","Название процедуры"};
 
     DataTable(ui->TVServices,"id,servicename",Database().getDbName()+".services where servicename = '"+serviceName+"'",headers);
+
+}
+
+
+
+void mainmenuwindow::on_CWAppointments_clicked(const QDate &date)
+{
+    QString db = Database().getDbName();
+    QStringList headers = {"id","Дата и время","ФИО врача"};
+    DataTable(
+        ui->TVAppointments,
+        db + ".visits.id, "
+            "DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate, " +
+            db + ".users.userfullname",
+        db + ".visits "
+            "JOIN " + db + ".users ON " + db + ".users.id = " + db + ".visits.visituserid "
+            "WHERE " + db + ".visits.visitdate >= '" + date.toString(Qt::ISODate) + " 00:00:00' "
+            "AND " + db + ".visits.visitdate < '" + date.addDays(1).toString(Qt::ISODate) + " 00:00:00'",
+
+        headers
+        );
+    ui->TVAppointments->hideColumn(0);
+
+}
+
+
+void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
+{
+    int appointId = getId(ui->TVAppointments);
+
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    QString db = Database().getDbName();
+
+    query.prepare(    "select "
+                      "DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate, " +
+                      db + ".patients.patientname, " +
+                      db + ".patients.patientsurname, " +
+                      db + ".patients.patientpatronymic, " +
+                      db + ".users.userfullname, " +
+                      db + ".services.servicename, " +
+                      db + ".services.serviceduration " +
+                      "from " + db + ".visits " +
+                      "join " + db + ".patients on " + db + ".patients.id = " + db + ".visits.visitpatientid " +
+                      "join " + db + ".users on " + db + ".users.id = " + db + ".visits.visituserid " +
+                      "join " + db + ".services on " + db + ".services.id = " +
+                      "(select visitservicesserviceid from " + db + ".visitservices " +
+                      "where visitservicesvisitid = " + db + ".visits.id limit 1) " +
+                      "where " + db + ".visits.id = :id");
+    query.bindValue(":id", appointId);
+    query.exec();
+    query.next();
+
+    ui->LAppointmentsDate->setText(query.value(0).toString());
+    ui->LAppointmentsPatient->setText(query.value(1).toString()+" "+ query.value(2).toString()+ " " + query.value(3).toString());
+    ui->LAppointmentsMedic->setText(query.value(4).toString());
+    ui->LAppointmentsService->setText(query.value(5).toString());
+    ui->LAppointmentsDuration->setText(query.value(6).toString());
 
 }
 

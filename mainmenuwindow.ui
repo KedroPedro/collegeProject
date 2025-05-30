@@ -674,7 +674,7 @@ border-bottom-right-radius:30
 </string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="PAppointment">
        <property name="styleSheet">
@@ -725,7 +725,7 @@ border-radius:30;</string>
                <number>9</number>
               </property>
               <item>
-               <widget class="QCalendarWidget" name="calendarWidget">
+               <widget class="QCalendarWidget" name="CWAppointments">
                 <property name="styleSheet">
                  <string notr="true">QCalendarWidget {
     background-color: white;
@@ -893,7 +893,7 @@ border:5px solid #3E7C59;</string>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_43">
                           <item row="0" column="0">
-                           <widget class="QLabel" name="LServicePrice_3">
+                           <widget class="QLabel" name="LAppointmentsPatient">
                             <property name="styleSheet">
                              <string notr="true">background: none;
 border:none;
@@ -931,7 +931,7 @@ border:5px solid #3E7C59;</string>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_42">
                           <item row="0" column="0">
-                           <widget class="QLabel" name="LServicePrice_2">
+                           <widget class="QLabel" name="LAppointmentsMedic">
                             <property name="styleSheet">
                              <string notr="true">background: none;
 border:none;
@@ -1072,7 +1072,7 @@ border:5px solid #3E7C59;</string>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_50">
                           <item row="0" column="0">
-                           <widget class="QLabel" name="LServicePrice_4">
+                           <widget class="QLabel" name="LAppointmentsDuration">
                             <property name="styleSheet">
                              <string notr="true">background: none;
 border:none;
@@ -1196,7 +1196,7 @@ border:5px solid #3E7C59;</string>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_51">
                           <item row="0" column="0">
-                           <widget class="QLabel" name="LServicePrice_5">
+                           <widget class="QLabel" name="LAppointmentsDate">
                             <property name="styleSheet">
                              <string notr="true">background: none;
 border:none;
@@ -1234,7 +1234,7 @@ border:5px solid #3E7C59;</string>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_54">
                           <item row="0" column="0">
-                           <widget class="QLabel" name="LServicePrice_6">
+                           <widget class="QLabel" name="LAppointmentsService">
                             <property name="styleSheet">
                              <string notr="true">background: none;
 border:none;
@@ -1314,11 +1314,145 @@ border-top-left-radius:30;</string>
 border-radius:30;</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_41">
+              <property name="topMargin">
+               <number>18</number>
+              </property>
               <item row="0" column="0">
-               <widget class="QTableWidget" name="tableWidget_2">
+               <widget class="QTableView" name="TVAppointments">
                 <property name="styleSheet">
-                 <string notr="true">background:white</string>
+                 <string notr="true">QHeaderView::section {
+    background-color: #3E7C59;
+    color: white;
+    padding: 5px;
+    border: none;
+
+}
+
+QTableView {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+
+    gridline-color: #e0e0e0;
+}
+
+QTableView::item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+QTableView::item:selected {
+    background-color: #e0e0e0;
+    color: black;
+}</string>
                 </property>
+                <property name="editTriggers">
+                 <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                </property>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QWidget" name="widget_80" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item alignment="Qt::AlignmentFlag::AlignTop">
+                  <widget class="QPushButton" name="PBAppointmentAdd">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Добавить</string>
+                   </property>
+                   <property name="autoDefault">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignmentFlag::AlignTop">
+                  <widget class="QPushButton" name="PBAppointmentEdit">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Редактировать</string>
+                   </property>
+                   <property name="autoDefault">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignmentFlag::AlignTop">
+                  <widget class="QPushButton" name="PBAppointmentDelete">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Удалить</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>

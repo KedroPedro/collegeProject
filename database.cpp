@@ -34,7 +34,6 @@ void Database::setConfig(QSqlDatabase& db){
     db.setHostName(_dbConf[1]);
     db.setUserName(_dbConf[2]);
     db.setPassword(_dbConf[3]);
-    db.setConnectOptions("charset=utf8mb3");
 }
 
 QString Database::getTitle(){

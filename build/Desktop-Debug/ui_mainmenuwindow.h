@@ -22,7 +22,6 @@
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -86,7 +85,7 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QWidget *widget_63;
     QVBoxLayout *verticalLayout_10;
-    QCalendarWidget *calendarWidget;
+    QCalendarWidget *CWAppointments;
     QWidget *widget_65;
     QVBoxLayout *verticalLayout_11;
     QWidget *widget_66;
@@ -98,10 +97,10 @@ public:
     QLabel *label_15;
     QWidget *widget_69;
     QGridLayout *gridLayout_43;
-    QLabel *LServicePrice_3;
+    QLabel *LAppointmentsPatient;
     QWidget *widget_68;
     QGridLayout *gridLayout_42;
-    QLabel *LServicePrice_2;
+    QLabel *LAppointmentsMedic;
     QWidget *widget_70;
     QGridLayout *gridLayout_44;
     QLabel *label_14;
@@ -111,7 +110,7 @@ public:
     QGridLayout *gridLayout_48;
     QWidget *widget_75;
     QGridLayout *gridLayout_50;
-    QLabel *LServicePrice_4;
+    QLabel *LAppointmentsDuration;
     QWidget *widget_77;
     QGridLayout *gridLayout_52;
     QLabel *label_18;
@@ -120,16 +119,21 @@ public:
     QLabel *label_17;
     QWidget *widget_76;
     QGridLayout *gridLayout_51;
-    QLabel *LServicePrice_5;
+    QLabel *LAppointmentsDate;
     QWidget *widget_78;
     QGridLayout *gridLayout_54;
-    QLabel *LServicePrice_6;
+    QLabel *LAppointmentsService;
     QWidget *widget_79;
     QGridLayout *gridLayout_55;
     QLabel *label_19;
     QWidget *widget_64;
     QGridLayout *gridLayout_41;
-    QTableWidget *tableWidget_2;
+    QTableView *TVAppointments;
+    QWidget *widget_80;
+    QHBoxLayout *horizontalLayout_9;
+    QPushButton *PBAppointmentAdd;
+    QPushButton *PBAppointmentEdit;
+    QPushButton *PBAppointmentDelete;
     QWidget *widget_62;
     QWidget *PMainMenu;
     QWidget *PPacientList;
@@ -629,9 +633,9 @@ public:
         verticalLayout_10 = new QVBoxLayout(widget_63);
         verticalLayout_10->setObjectName("verticalLayout_10");
         verticalLayout_10->setContentsMargins(18, 18, 18, 9);
-        calendarWidget = new QCalendarWidget(widget_63);
-        calendarWidget->setObjectName("calendarWidget");
-        calendarWidget->setStyleSheet(QString::fromUtf8("QCalendarWidget {\n"
+        CWAppointments = new QCalendarWidget(widget_63);
+        CWAppointments->setObjectName("CWAppointments");
+        CWAppointments->setStyleSheet(QString::fromUtf8("QCalendarWidget {\n"
 "    background-color: white;\n"
 "}\n"
 "\n"
@@ -677,9 +681,9 @@ public:
 "QCalendarWidget QTableView::item:!selected:focus {\n"
 "    border: 1px solid #3E7C59;\n"
 "}"));
-        calendarWidget->setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader);
+        CWAppointments->setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader);
 
-        verticalLayout_10->addWidget(calendarWidget);
+        verticalLayout_10->addWidget(CWAppointments);
 
         widget_65 = new QWidget(widget_63);
         widget_65->setObjectName("widget_65");
@@ -731,15 +735,15 @@ public:
 "border:5px solid #3E7C59;"));
         gridLayout_43 = new QGridLayout(widget_69);
         gridLayout_43->setObjectName("gridLayout_43");
-        LServicePrice_3 = new QLabel(widget_69);
-        LServicePrice_3->setObjectName("LServicePrice_3");
-        LServicePrice_3->setStyleSheet(QString::fromUtf8("background: none;\n"
+        LAppointmentsPatient = new QLabel(widget_69);
+        LAppointmentsPatient->setObjectName("LAppointmentsPatient");
+        LAppointmentsPatient->setStyleSheet(QString::fromUtf8("background: none;\n"
 "border:none;\n"
 "color:white;\n"
 ""));
-        LServicePrice_3->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LAppointmentsPatient->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_43->addWidget(LServicePrice_3, 0, 0, 1, 1);
+        gridLayout_43->addWidget(LAppointmentsPatient, 0, 0, 1, 1);
 
 
         gridLayout_45->addWidget(widget_69, 1, 1, 1, 1);
@@ -752,15 +756,15 @@ public:
 "border:5px solid #3E7C59;"));
         gridLayout_42 = new QGridLayout(widget_68);
         gridLayout_42->setObjectName("gridLayout_42");
-        LServicePrice_2 = new QLabel(widget_68);
-        LServicePrice_2->setObjectName("LServicePrice_2");
-        LServicePrice_2->setStyleSheet(QString::fromUtf8("background: none;\n"
+        LAppointmentsMedic = new QLabel(widget_68);
+        LAppointmentsMedic->setObjectName("LAppointmentsMedic");
+        LAppointmentsMedic->setStyleSheet(QString::fromUtf8("background: none;\n"
 "border:none;\n"
 "color:white;\n"
 ""));
-        LServicePrice_2->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LAppointmentsMedic->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_42->addWidget(LServicePrice_2, 0, 0, 1, 1);
+        gridLayout_42->addWidget(LAppointmentsMedic, 0, 0, 1, 1);
 
 
         gridLayout_45->addWidget(widget_68, 1, 0, 1, 1);
@@ -816,15 +820,15 @@ public:
 "border:5px solid #3E7C59;"));
         gridLayout_50 = new QGridLayout(widget_75);
         gridLayout_50->setObjectName("gridLayout_50");
-        LServicePrice_4 = new QLabel(widget_75);
-        LServicePrice_4->setObjectName("LServicePrice_4");
-        LServicePrice_4->setStyleSheet(QString::fromUtf8("background: none;\n"
+        LAppointmentsDuration = new QLabel(widget_75);
+        LAppointmentsDuration->setObjectName("LAppointmentsDuration");
+        LAppointmentsDuration->setStyleSheet(QString::fromUtf8("background: none;\n"
 "border:none;\n"
 "color:white;\n"
 ""));
-        LServicePrice_4->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LAppointmentsDuration->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_50->addWidget(LServicePrice_4, 0, 0, 1, 1);
+        gridLayout_50->addWidget(LAppointmentsDuration, 0, 0, 1, 1);
 
 
         gridLayout_48->addWidget(widget_75, 1, 1, 1, 1);
@@ -879,15 +883,15 @@ public:
 "border:5px solid #3E7C59;"));
         gridLayout_51 = new QGridLayout(widget_76);
         gridLayout_51->setObjectName("gridLayout_51");
-        LServicePrice_5 = new QLabel(widget_76);
-        LServicePrice_5->setObjectName("LServicePrice_5");
-        LServicePrice_5->setStyleSheet(QString::fromUtf8("background: none;\n"
+        LAppointmentsDate = new QLabel(widget_76);
+        LAppointmentsDate->setObjectName("LAppointmentsDate");
+        LAppointmentsDate->setStyleSheet(QString::fromUtf8("background: none;\n"
 "border:none;\n"
 "color:white;\n"
 ""));
-        LServicePrice_5->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LAppointmentsDate->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_51->addWidget(LServicePrice_5, 0, 0, 1, 1);
+        gridLayout_51->addWidget(LAppointmentsDate, 0, 0, 1, 1);
 
 
         gridLayout_48->addWidget(widget_76, 1, 0, 1, 1);
@@ -900,15 +904,15 @@ public:
 "border:5px solid #3E7C59;"));
         gridLayout_54 = new QGridLayout(widget_78);
         gridLayout_54->setObjectName("gridLayout_54");
-        LServicePrice_6 = new QLabel(widget_78);
-        LServicePrice_6->setObjectName("LServicePrice_6");
-        LServicePrice_6->setStyleSheet(QString::fromUtf8("background: none;\n"
+        LAppointmentsService = new QLabel(widget_78);
+        LAppointmentsService->setObjectName("LAppointmentsService");
+        LAppointmentsService->setStyleSheet(QString::fromUtf8("background: none;\n"
 "border:none;\n"
 "color:white;\n"
 ""));
-        LServicePrice_6->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LAppointmentsService->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_54->addWidget(LServicePrice_6, 0, 0, 1, 1);
+        gridLayout_54->addWidget(LAppointmentsService, 0, 0, 1, 1);
 
 
         gridLayout_48->addWidget(widget_78, 1, 2, 1, 1);
@@ -952,11 +956,100 @@ public:
 "border-radius:30;"));
         gridLayout_41 = new QGridLayout(widget_64);
         gridLayout_41->setObjectName("gridLayout_41");
-        tableWidget_2 = new QTableWidget(widget_64);
-        tableWidget_2->setObjectName("tableWidget_2");
-        tableWidget_2->setStyleSheet(QString::fromUtf8("background:white"));
+        gridLayout_41->setContentsMargins(-1, 18, -1, -1);
+        TVAppointments = new QTableView(widget_64);
+        TVAppointments->setObjectName("TVAppointments");
+        TVAppointments->setStyleSheet(QString::fromUtf8("QHeaderView::section {\n"
+"    background-color: #3E7C59;\n"
+"    color: white;\n"
+"    padding: 5px;\n"
+"    border: none;\n"
+"\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    background-color: white;\n"
+"    border: 1px solid #e0e0e0;\n"
+"    border-radius: 10px;\n"
+"\n"
+"    gridline-color: #e0e0e0;\n"
+"}\n"
+"\n"
+"QTableView::item {\n"
+"    background-color: white;\n"
+"    border: 1px solid #e0e0e0;\n"
+"    border-radius: 4px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color: #e0e0e0;\n"
+"    color: black;\n"
+"}"));
+        TVAppointments->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TVAppointments->horizontalHeader()->setStretchLastSection(true);
 
-        gridLayout_41->addWidget(tableWidget_2, 0, 0, 1, 1);
+        gridLayout_41->addWidget(TVAppointments, 0, 0, 1, 1);
+
+        widget_80 = new QWidget(widget_64);
+        widget_80->setObjectName("widget_80");
+        widget_80->setMaximumSize(QSize(16777215, 60));
+        horizontalLayout_9 = new QHBoxLayout(widget_80);
+        horizontalLayout_9->setObjectName("horizontalLayout_9");
+        PBAppointmentAdd = new QPushButton(widget_80);
+        PBAppointmentAdd->setObjectName("PBAppointmentAdd");
+        PBAppointmentAdd->setMinimumSize(QSize(0, 40));
+        PBAppointmentAdd->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:20;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #004528;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+        PBAppointmentAdd->setAutoDefault(false);
+
+        horizontalLayout_9->addWidget(PBAppointmentAdd, 0, Qt::AlignmentFlag::AlignTop);
+
+        PBAppointmentEdit = new QPushButton(widget_80);
+        PBAppointmentEdit->setObjectName("PBAppointmentEdit");
+        PBAppointmentEdit->setEnabled(true);
+        PBAppointmentEdit->setMinimumSize(QSize(0, 40));
+        PBAppointmentEdit->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:20;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #004528;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+        PBAppointmentEdit->setAutoDefault(false);
+
+        horizontalLayout_9->addWidget(PBAppointmentEdit, 0, Qt::AlignmentFlag::AlignTop);
+
+        PBAppointmentDelete = new QPushButton(widget_80);
+        PBAppointmentDelete->setObjectName("PBAppointmentDelete");
+        PBAppointmentDelete->setMinimumSize(QSize(0, 40));
+        PBAppointmentDelete->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:20;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #004528;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+        PBAppointmentDelete->setCheckable(false);
+
+        horizontalLayout_9->addWidget(PBAppointmentDelete, 0, Qt::AlignmentFlag::AlignTop);
+
+
+        gridLayout_41->addWidget(widget_80, 1, 0, 1, 1);
 
 
         horizontalLayout_5->addWidget(widget_64);
@@ -1826,7 +1919,7 @@ public:
 
         retranslateUi(mainmenuwindow);
 
-        SWMenus->setCurrentIndex(3);
+        SWMenus->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(mainmenuwindow);
@@ -1850,15 +1943,18 @@ public:
         LProfileUsername->setText(QString());
         LProfilePermission->setText(QString());
         label_15->setText(QCoreApplication::translate("mainmenuwindow", "\320\222\321\200\320\260\321\207", nullptr));
-        LServicePrice_3->setText(QString());
-        LServicePrice_2->setText(QString());
+        LAppointmentsPatient->setText(QString());
+        LAppointmentsMedic->setText(QString());
         label_14->setText(QCoreApplication::translate("mainmenuwindow", "\320\237\320\260\321\206\320\270\320\265\320\275\321\202", nullptr));
-        LServicePrice_4->setText(QString());
+        LAppointmentsDuration->setText(QString());
         label_18->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\273\320\270\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr));
         label_17->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\260\321\202\320\260", nullptr));
-        LServicePrice_5->setText(QString());
-        LServicePrice_6->setText(QString());
+        LAppointmentsDate->setText(QString());
+        LAppointmentsService->setText(QString());
         label_19->setText(QCoreApplication::translate("mainmenuwindow", "\320\277\321\200\320\276\321\206\320\265\320\264\321\203\321\200\320\260", nullptr));
+        PBAppointmentAdd->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
+        PBAppointmentEdit->setText(QCoreApplication::translate("mainmenuwindow", "\320\240\320\265\320\264\320\260\320\272\321\202\320\270\321\200\320\276\320\262\320\260\321\202\321\214", nullptr));
+        PBAppointmentDelete->setText(QCoreApplication::translate("mainmenuwindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         LESecondName->setPlaceholderText(QCoreApplication::translate("mainmenuwindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\204\320\260\320\274\320\270\320\273\320\270\321\216", nullptr));
         PBFindPatient->setText(QCoreApplication::translate("mainmenuwindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
         LLens->setText(QString());

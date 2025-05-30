@@ -58,7 +58,10 @@ static constexpr auto qt_meta_stringdata_ZN14mainmenuwindowE = QtMocHelpers::str
     "on_PBServiceTableDelete_clicked",
     "on_PBServiceTableEdit_clicked",
     "on_TVServices_doubleClicked",
-    "on_PBServiceFind_clicked"
+    "on_PBServiceFind_clicked",
+    "on_CWAppointments_clicked",
+    "date",
+    "on_TVAppointments_doubleClicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -70,7 +73,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -78,22 +81,24 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  110,    2, 0x0a,    1 /* Public */,
-       5,    0,  113,    2, 0x08,    3 /* Private */,
-       6,    0,  114,    2, 0x08,    4 /* Private */,
-       7,    1,  115,    2, 0x08,    5 /* Private */,
-      10,    0,  118,    2, 0x08,    7 /* Private */,
-      11,    0,  119,    2, 0x08,    8 /* Private */,
-      12,    0,  120,    2, 0x08,    9 /* Private */,
-      13,    0,  121,    2, 0x08,   10 /* Private */,
-      14,    0,  122,    2, 0x08,   11 /* Private */,
-      15,    0,  123,    2, 0x08,   12 /* Private */,
-      16,    0,  124,    2, 0x08,   13 /* Private */,
-      17,    0,  125,    2, 0x08,   14 /* Private */,
-      18,    0,  126,    2, 0x08,   15 /* Private */,
-      19,    0,  127,    2, 0x08,   16 /* Private */,
-      20,    1,  128,    2, 0x08,   17 /* Private */,
-      21,    0,  131,    2, 0x08,   19 /* Private */,
+       1,    1,  122,    2, 0x0a,    1 /* Public */,
+       5,    0,  125,    2, 0x08,    3 /* Private */,
+       6,    0,  126,    2, 0x08,    4 /* Private */,
+       7,    1,  127,    2, 0x08,    5 /* Private */,
+      10,    0,  130,    2, 0x08,    7 /* Private */,
+      11,    0,  131,    2, 0x08,    8 /* Private */,
+      12,    0,  132,    2, 0x08,    9 /* Private */,
+      13,    0,  133,    2, 0x08,   10 /* Private */,
+      14,    0,  134,    2, 0x08,   11 /* Private */,
+      15,    0,  135,    2, 0x08,   12 /* Private */,
+      16,    0,  136,    2, 0x08,   13 /* Private */,
+      17,    0,  137,    2, 0x08,   14 /* Private */,
+      18,    0,  138,    2, 0x08,   15 /* Private */,
+      19,    0,  139,    2, 0x08,   16 /* Private */,
+      20,    1,  140,    2, 0x08,   17 /* Private */,
+      21,    0,  143,    2, 0x08,   19 /* Private */,
+      22,    1,  144,    2, 0x08,   20 /* Private */,
+      24,    1,  147,    2, 0x08,   22 /* Private */,
 
  // slots: parameters
     QMetaType::Int, 0x80000000 | 3,    4,
@@ -112,6 +117,8 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QDate,   23,
+    QMetaType::Void, 0x80000000 | 8,    9,
 
        0        // eod
 };
@@ -159,7 +166,13 @@ Q_CONSTINIT const QMetaObject mainmenuwindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>,
         // method 'on_PBServiceFind_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_CWAppointments_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QDate &, std::false_type>,
+        // method 'on_TVAppointments_doubleClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>
     >,
     nullptr
 } };
@@ -186,6 +199,8 @@ void mainmenuwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 13: _t->on_PBServiceTableEdit_clicked(); break;
         case 14: _t->on_TVServices_doubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
         case 15: _t->on_PBServiceFind_clicked(); break;
+        case 16: _t->on_CWAppointments_clicked((*reinterpret_cast< std::add_pointer_t<QDate>>(_a[1]))); break;
+        case 17: _t->on_TVAppointments_doubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
         default: ;
         }
     }
@@ -222,14 +237,14 @@ int mainmenuwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     }
     return _id;
 }

@@ -57,6 +57,12 @@ private slots:
 
     void on_PBServiceFind_clicked();
 
+
+
+    void on_CWAppointments_clicked(const QDate &date);
+
+    void on_TVAppointments_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::mainmenuwindow *ui;
 };
