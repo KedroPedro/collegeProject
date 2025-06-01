@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../addpatientwindow.cpp \
+SOURCES       = ../../addappointmentwindow.cpp \
+		../../addpatientwindow.cpp \
 		../../addservicewindow.cpp \
 		../../database.cpp \
 		../../datatable.cpp \
@@ -65,7 +66,8 @@ SOURCES       = ../../addpatientwindow.cpp \
 		../../picture.cpp \
 		../../regadminconfirm.cpp \
 		../../regfullinfo.cpp \
-		../../settings.cpp moc_addpatientwindow.cpp \
+		../../settings.cpp moc_addappointmentwindow.cpp \
+		moc_addpatientwindow.cpp \
 		moc_addservicewindow.cpp \
 		moc_authorizationwindow.cpp \
 		moc_editpatientwindow.cpp \
@@ -75,7 +77,8 @@ SOURCES       = ../../addpatientwindow.cpp \
 		moc_regadminconfirm.cpp \
 		moc_regfullinfo.cpp \
 		moc_settings.cpp
-OBJECTS       = addpatientwindow.o \
+OBJECTS       = addappointmentwindow.o \
+		addpatientwindow.o \
 		addservicewindow.o \
 		database.o \
 		datatable.o \
@@ -89,6 +92,7 @@ OBJECTS       = addpatientwindow.o \
 		regadminconfirm.o \
 		regfullinfo.o \
 		settings.o \
+		moc_addappointmentwindow.o \
 		moc_addpatientwindow.o \
 		moc_addservicewindow.o \
 		moc_authorizationwindow.o \
@@ -170,7 +174,8 @@ DIST          = ../../config.ini \
 		/usr/lib64/qt6/mkspecs/features/exceptions.prf \
 		/usr/lib64/qt6/mkspecs/features/yacc.prf \
 		/usr/lib64/qt6/mkspecs/features/lex.prf \
-		../../../../collegeProject.pro ../../addpatientwindow.h \
+		../../../../collegeProject.pro ../../addappointmentwindow.h \
+		../../addpatientwindow.h \
 		../../addservicewindow.h \
 		../../authorizationwindow.h \
 		../../database.h \
@@ -182,7 +187,8 @@ DIST          = ../../config.ini \
 		../../picture.h \
 		../../regadminconfirm.h \
 		../../regfullinfo.h \
-		../../settings.h ../../addpatientwindow.cpp \
+		../../settings.h ../../addappointmentwindow.cpp \
+		../../addpatientwindow.cpp \
 		../../addservicewindow.cpp \
 		../../database.cpp \
 		../../datatable.cpp \
@@ -204,7 +210,7 @@ TARGET        = collegeProject
 first: all
 ####### Build rules
 
-collegeProject: ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h $(OBJECTS)  
+collegeProject: ui_addappointmentwindow.h ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../collegeProject.pro /usr/lib64/qt6/mkspecs/linux-g++/qmake.conf /usr/lib64/qt6/mkspecs/features/spec_pre.prf \
@@ -371,9 +377,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib64/qt6/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../addpatientwindow.h ../../addservicewindow.h ../../authorizationwindow.h ../../database.h ../../datatable.h ../../editpatientwindow.h ../../editservicewindow.h ../../mainmenuwindow.h ../../passwordhasher.h ../../picture.h ../../regadminconfirm.h ../../regfullinfo.h ../../settings.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../addpatientwindow.cpp ../../addservicewindow.cpp ../../database.cpp ../../datatable.cpp ../../editpatientwindow.cpp ../../editservicewindow.cpp ../../main.cpp ../../authorizationwindow.cpp ../../mainmenuwindow.cpp ../../passwordhasher.cpp ../../picture.cpp ../../regadminconfirm.cpp ../../regfullinfo.cpp ../../settings.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../addpatientwindow.ui ../../addservicewindow.ui ../../authorizationwindow.ui ../../editpatientwindow.ui ../../editservicewindow.ui ../../mainmenuwindow.ui ../../regadminconfirm.ui ../../regfullinfo.ui ../../settings.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../addappointmentwindow.h ../../addpatientwindow.h ../../addservicewindow.h ../../authorizationwindow.h ../../database.h ../../datatable.h ../../editpatientwindow.h ../../editservicewindow.h ../../mainmenuwindow.h ../../passwordhasher.h ../../picture.h ../../regadminconfirm.h ../../regfullinfo.h ../../settings.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../addappointmentwindow.cpp ../../addpatientwindow.cpp ../../addservicewindow.cpp ../../database.cpp ../../datatable.cpp ../../editpatientwindow.cpp ../../editservicewindow.cpp ../../main.cpp ../../authorizationwindow.cpp ../../mainmenuwindow.cpp ../../passwordhasher.cpp ../../picture.cpp ../../regadminconfirm.cpp ../../regfullinfo.cpp ../../settings.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../addappointmentwindow.ui ../../addpatientwindow.ui ../../addservicewindow.ui ../../authorizationwindow.ui ../../editpatientwindow.ui ../../editservicewindow.ui ../../mainmenuwindow.ui ../../regadminconfirm.ui ../../regfullinfo.ui ../../settings.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -405,9 +411,14 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib64/qt6/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib64/qt6/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_addpatientwindow.cpp moc_addservicewindow.cpp moc_authorizationwindow.cpp moc_editpatientwindow.cpp moc_editservicewindow.cpp moc_mainmenuwindow.cpp moc_picture.cpp moc_regadminconfirm.cpp moc_regfullinfo.cpp moc_settings.cpp
+compiler_moc_header_make_all: moc_addappointmentwindow.cpp moc_addpatientwindow.cpp moc_addservicewindow.cpp moc_authorizationwindow.cpp moc_editpatientwindow.cpp moc_editservicewindow.cpp moc_mainmenuwindow.cpp moc_picture.cpp moc_regadminconfirm.cpp moc_regfullinfo.cpp moc_settings.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_addpatientwindow.cpp moc_addservicewindow.cpp moc_authorizationwindow.cpp moc_editpatientwindow.cpp moc_editservicewindow.cpp moc_mainmenuwindow.cpp moc_picture.cpp moc_regadminconfirm.cpp moc_regfullinfo.cpp moc_settings.cpp
+	-$(DEL_FILE) moc_addappointmentwindow.cpp moc_addpatientwindow.cpp moc_addservicewindow.cpp moc_authorizationwindow.cpp moc_editpatientwindow.cpp moc_editservicewindow.cpp moc_mainmenuwindow.cpp moc_picture.cpp moc_regadminconfirm.cpp moc_regfullinfo.cpp moc_settings.cpp
+moc_addappointmentwindow.cpp: ../../addappointmentwindow.h \
+		moc_predefs.h \
+		/usr/lib64/qt6/libexec/moc
+	/usr/lib64/qt6/libexec/moc $(DEFINES) --include /home/kedr/projects/qtprojects/collegeProject/build/Desktop-Debug/moc_predefs.h -I/usr/lib64/qt6/mkspecs/linux-g++ -I/home/kedr/projects/qtprojects/collegeProject -I/usr/include/qt6 -I/usr/include/qt6/QtWidgets -I/usr/include/qt6/QtGui -I/usr/include/qt6/QtSql -I/usr/include/qt6/QtCore -I. -I/usr/include/c++/14 -I/usr/include/c++/14/x86_64-redhat-linux -I/usr/include/c++/14/backward -I/usr/lib/gcc/x86_64-redhat-linux/14/include -I/usr/local/include -I/usr/include ../../addappointmentwindow.h -o moc_addappointmentwindow.cpp
+
 moc_addpatientwindow.cpp: ../../addpatientwindow.h \
 		moc_predefs.h \
 		/usr/lib64/qt6/libexec/moc
@@ -462,9 +473,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h
+compiler_uic_make_all: ui_addappointmentwindow.h ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h
+	-$(DEL_FILE) ui_addappointmentwindow.h ui_addpatientwindow.h ui_addservicewindow.h ui_authorizationwindow.h ui_editpatientwindow.h ui_editservicewindow.h ui_mainmenuwindow.h ui_regadminconfirm.h ui_regfullinfo.h ui_settings.h
+ui_addappointmentwindow.h: ../../addappointmentwindow.ui \
+		/usr/lib64/qt6/libexec/uic
+	/usr/lib64/qt6/libexec/uic ../../addappointmentwindow.ui -o ui_addappointmentwindow.h
+
 ui_addpatientwindow.h: ../../addpatientwindow.ui \
 		/usr/lib64/qt6/libexec/uic
 	/usr/lib64/qt6/libexec/uic ../../addpatientwindow.ui -o ui_addpatientwindow.h
@@ -510,6 +525,10 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+addappointmentwindow.o: ../../addappointmentwindow.cpp ../../addappointmentwindow.h \
+		ui_addappointmentwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addappointmentwindow.o ../../addappointmentwindow.cpp
 
 addpatientwindow.o: ../../addpatientwindow.cpp ../../addpatientwindow.h \
 		ui_addpatientwindow.h \
@@ -560,7 +579,8 @@ mainmenuwindow.o: ../../mainmenuwindow.cpp ../../mainmenuwindow.h \
 		../../addpatientwindow.h \
 		../../editpatientwindow.h \
 		../../addservicewindow.h \
-		../../editservicewindow.h
+		../../editservicewindow.h \
+		../../addappointmentwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenuwindow.o ../../mainmenuwindow.cpp
 
 passwordhasher.o: ../../passwordhasher.cpp ../../passwordhasher.h \
@@ -585,6 +605,9 @@ regfullinfo.o: ../../regfullinfo.cpp ../../regfullinfo.h \
 settings.o: ../../settings.cpp ../../settings.h \
 		ui_settings.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o settings.o ../../settings.cpp
+
+moc_addappointmentwindow.o: moc_addappointmentwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addappointmentwindow.o moc_addappointmentwindow.cpp
 
 moc_addpatientwindow.o: moc_addpatientwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addpatientwindow.o moc_addpatientwindow.cpp

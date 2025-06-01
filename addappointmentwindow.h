@@ -1,0 +1,25 @@
+#ifndef ADDAPPOINTMENTWINDOW_H
+#define ADDAPPOINTMENTWINDOW_H
+
+#include <QDialog>
+
+namespace Ui {
+class AddAppointmentWindow;
+}
+
+class AddAppointmentWindow : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit AddAppointmentWindow(QWidget *parent = nullptr);
+    ~AddAppointmentWindow();
+
+private slots:
+    void on_PBCancel_clicked();
+
+private:
+    Ui::AddAppointmentWindow *ui;
+};
+
+#endif // ADDAPPOINTMENTWINDOW_H

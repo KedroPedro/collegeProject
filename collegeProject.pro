@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addappointmentwindow.cpp \
     addpatientwindow.cpp \
     addservicewindow.cpp \
     database.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
     settings.cpp
 
 HEADERS += \
+    addappointmentwindow.h \
     addpatientwindow.h \
     addservicewindow.h \
     authorizationwindow.h \
@@ -41,6 +43,7 @@ HEADERS += \
 
 
 FORMS += \
+    addappointmentwindow.ui \
     addpatientwindow.ui \
     addservicewindow.ui \
     authorizationwindow.ui \

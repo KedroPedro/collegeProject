@@ -81,12 +81,9 @@ void AuthorizationWindow::on_PBRegisterReg_clicked()
 {
     bool opened = AuthorizationWindow::check_connection();
 
-    ui->LEPasswordReg->setText("");
-    ui->LEPasswordRegAgain->setText("");
-    ui->LEPasswordLogin->setText("");
     if(!opened){
         qApp->exit(1);
-    }else if(ui->LEPasswordReg->text().isEmpty() || ui->LEUserReg->text().isEmpty()){
+    }else if(ui->LEPasswordReg->text().isEmpty() || ui->LEUserReg->text().isEmpty() || ui->LEPasswordRegAgain->text().isEmpty()){
         QMessageBox::warning(this,"Ошибка","Поля не должны быть пустыми");
         return;
     }else if(ui->LEPasswordReg->text() != ui->LEPasswordRegAgain->text()){
@@ -104,14 +101,15 @@ void AuthorizationWindow::on_PBRegisterReg_clicked()
     if(ui->LEUserReg->text().length() < 4 ||ui->LEUserReg->text().length() > 40){
         ui->LEUserReg->setText("");
         QMessageBox::warning(this,"Ошибка","Длина логина должна быть не менее 4 символов");
+        return;
     }
 
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
-    query.prepare("select * from "+Database().getDbName()+".users where userlogin = :login");
-    query.bindValue(":login",ui->LEUserLogin->text());
+    query.prepare("select * from "+Database().getDbName()+".users where username = :login");
+    query.bindValue(":login",ui->LEUserReg->text());
     query.exec();
-    query.next();
-    if(!query.value(0).isNull()){
+
+    if(query.next()){
         QMessageBox::warning(this,"Ошибка","Аккаунт с таким именем уже зарегистрирован");
         return;
     }
@@ -125,7 +123,9 @@ void AuthorizationWindow::on_PBRegisterReg_clicked()
     }
     window.deleteLater();
     QMessageBox::information(this,"Успех","Ваш аккаунт успешно зарегистрирован");
-
+    ui->LEPasswordReg->setText("");
+    ui->LEPasswordRegAgain->setText("");
+    ui->LEUserReg->setText("");
     return;
 }
 

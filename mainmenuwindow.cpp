@@ -7,6 +7,7 @@
 #include "editpatientwindow.h"
 #include "addservicewindow.h"
 #include "editservicewindow.h"
+#include "addappointmentwindow.h"
 
 #include <QSqlError>
 #include <QTableView>
@@ -306,7 +307,7 @@ void mainmenuwindow::on_TVServices_doubleClicked(const QModelIndex &index)
     QString db = Database().getDbName();
     QStringList headers = {"Дата","Процедура"};
 
-    DataTable(ui->TVVisitServices,"DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate"
+    DataTable(ui->TVVisitServices,"date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate"
             ", "+db+".services.servicename" ,
               db+".visitservices "
             "join "+db+".visits on "+db+".visitservices.visitservicesvisitid = "+db+".visits.id "
@@ -343,7 +344,7 @@ void mainmenuwindow::on_CWAppointments_clicked(const QDate &date)
     DataTable(
         ui->TVAppointments,
         db + ".visits.id, "
-            "DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate, " +
+            "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, " +
             db + ".users.userfullname",
         db + ".visits "
             "JOIN " + db + ".users ON " + db + ".users.id = " + db + ".visits.visituserid "
@@ -365,7 +366,7 @@ void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
     QString db = Database().getDbName();
 
     query.prepare(    "select "
-                      "DATE_FORMAT(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') AS formdate, " +
+                      "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, " +
                       db + ".patients.patientname, " +
                       db + ".patients.patientsurname, " +
                       db + ".patients.patientpatronymic, " +
@@ -389,5 +390,14 @@ void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
     ui->LAppointmentsService->setText(query.value(5).toString());
     ui->LAppointmentsDuration->setText(query.value(6).toString());
 
+}
+
+
+void mainmenuwindow::on_PBAppointmentAdd_clicked()
+{
+    AddAppointmentWindow window;
+    window.setModal(true);
+    window.exec();
+    window.deleteLater();
 }
 

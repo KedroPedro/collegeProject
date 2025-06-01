@@ -63,6 +63,8 @@ private slots:
 
     void on_TVAppointments_doubleClicked(const QModelIndex &index);
 
+    void on_PBAppointmentAdd_clicked();
+
 private:
     Ui::mainmenuwindow *ui;
 };
