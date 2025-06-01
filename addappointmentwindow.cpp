@@ -19,11 +19,14 @@ AddAppointmentWindow::AddAppointmentWindow(QWidget *parent)
 
     int ind = 0;
     while (query.next()) {
-        QString name = query.value(0).toString();
         if (!query.value(0).isNull()) {
-            ui->CBUsers->addItem(name);
+            ui->CBUsers->addItem(query.value(0).toString());
         }
     }
+
+    query.prepare("select servicename from "+Database.getDbName()+".services");
+    query.exec();
+    query.next();
 
 }
 
