@@ -19,6 +19,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,30 +39,35 @@ public:
     QWidget *widget_2;
     QGridLayout *gridLayout_9;
     QLabel *label_6;
-    QWidget *widget_4;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
     QWidget *widget_16;
     QGridLayout *gridLayout_17;
     QLabel *label_13;
-    QComboBox *CBPermissions_4;
+    QComboBox *CBServices;
     QWidget *widget_5;
     QGridLayout *gridLayout_8;
     QLabel *label_5;
     QWidget *widget_6;
     QGridLayout *gridLayout_4;
-    QDateTimeEdit *dateTimeEdit;
+    QDateTimeEdit *DateTime;
     QWidget *widget_14;
     QGridLayout *gridLayout_15;
     QLabel *label_12;
     QWidget *widget_15;
     QGridLayout *gridLayout_16;
-    QLineEdit *LEDuration;
+    QLineEdit *LEReason;
     QWidget *widget_8;
     QGridLayout *gridLayout_14;
     QLabel *label_11;
-    QComboBox *CBPermissions_3;
+    QComboBox *CBStatus;
+    QWidget *widget_4;
+    QVBoxLayout *verticalLayout;
+    QWidget *widget_10;
+    QGridLayout *gridLayout_5;
+    QLabel *LPatientFullName;
+    QWidget *widget_9;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *PBSelectPatient;
+    QPushButton *PBAddNewPatient;
     QWidget *widget_17;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *PBCancel;
@@ -147,46 +153,6 @@ public:
 
         gridLayout_3->addWidget(widget_2, 1, 0, 1, 1);
 
-        widget_4 = new QWidget(widget_3);
-        widget_4->setObjectName("widget_4");
-        horizontalLayout = new QHBoxLayout(widget_4);
-        horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget_4);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(0, 60));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"	border-radius:30;\n"
-"	background-color:white;\n"
-"	color:black;\n"
-"	border: 7px solid #4C5958;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"        background-color:#ACACAC;\n"
-"}"));
-
-        horizontalLayout->addWidget(pushButton);
-
-        pushButton_2 = new QPushButton(widget_4);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMinimumSize(QSize(0, 60));
-        pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"	border-radius:30;\n"
-"	background-color:white;\n"
-"	color:black;\n"
-"	border: 7px solid #4C5958;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"        background-color:#ACACAC;\n"
-"}"));
-
-        horizontalLayout->addWidget(pushButton_2);
-
-
-        gridLayout_3->addWidget(widget_4, 1, 1, 1, 1);
-
         widget_16 = new QWidget(widget_3);
         widget_16->setObjectName("widget_16");
         widget_16->setMaximumSize(QSize(16777215, 60));
@@ -205,13 +171,13 @@ public:
 
         gridLayout_3->addWidget(widget_16, 2, 0, 1, 1);
 
-        CBPermissions_4 = new QComboBox(widget_3);
-        CBPermissions_4->setObjectName("CBPermissions_4");
-        CBPermissions_4->setMinimumSize(QSize(0, 60));
-        CBPermissions_4->setMaximumSize(QSize(16777215, 40));
-        CBPermissions_4->setFont(font);
-        CBPermissions_4->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-        CBPermissions_4->setStyleSheet(QString::fromUtf8("\n"
+        CBServices = new QComboBox(widget_3);
+        CBServices->setObjectName("CBServices");
+        CBServices->setMinimumSize(QSize(0, 60));
+        CBServices->setMaximumSize(QSize(16777215, 40));
+        CBServices->setFont(font);
+        CBServices->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+        CBServices->setStyleSheet(QString::fromUtf8("\n"
 "	border-radius:0;\n"
 "    text-align: center;\n"
 "	background:white;\n"
@@ -220,9 +186,9 @@ public:
 "	border-top-right-radius:30;\n"
 "	color:black;\n"
 ""));
-        CBPermissions_4->setSizeAdjustPolicy(QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
+        CBServices->setSizeAdjustPolicy(QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
 
-        gridLayout_3->addWidget(CBPermissions_4, 2, 1, 1, 1, Qt::AlignmentFlag::AlignTop);
+        gridLayout_3->addWidget(CBServices, 2, 1, 1, 1, Qt::AlignmentFlag::AlignTop);
 
         widget_5 = new QWidget(widget_3);
         widget_5->setObjectName("widget_5");
@@ -247,11 +213,11 @@ public:
         gridLayout_4 = new QGridLayout(widget_6);
         gridLayout_4->setObjectName("gridLayout_4");
         gridLayout_4->setContentsMargins(0, 0, 0, 0);
-        dateTimeEdit = new QDateTimeEdit(widget_6);
-        dateTimeEdit->setObjectName("dateTimeEdit");
-        dateTimeEdit->setMinimumSize(QSize(0, 60));
-        dateTimeEdit->setFont(font);
-        dateTimeEdit->setStyleSheet(QString::fromUtf8("QDateTimeEdit {\n"
+        DateTime = new QDateTimeEdit(widget_6);
+        DateTime->setObjectName("DateTime");
+        DateTime->setMinimumSize(QSize(0, 60));
+        DateTime->setFont(font);
+        DateTime->setStyleSheet(QString::fromUtf8("QDateTimeEdit {\n"
 "	border-radius:0;\n"
 "    background-color: white;\n"
 "    border: 7px solid #4C5958;\n"
@@ -263,13 +229,13 @@ public:
 "}\n"
 "\n"
 ""));
-        dateTimeEdit->setFrame(true);
-        dateTimeEdit->setAlignment(Qt::AlignmentFlag::AlignCenter);
-        dateTimeEdit->setAccelerated(false);
-        dateTimeEdit->setProperty("showGroupSeparator", QVariant(false));
-        dateTimeEdit->setCalendarPopup(true);
+        DateTime->setFrame(true);
+        DateTime->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        DateTime->setAccelerated(false);
+        DateTime->setProperty("showGroupSeparator", QVariant(false));
+        DateTime->setCalendarPopup(true);
 
-        gridLayout_4->addWidget(dateTimeEdit, 0, 0, 1, 1);
+        gridLayout_4->addWidget(DateTime, 0, 0, 1, 1);
 
 
         gridLayout_3->addWidget(widget_6, 3, 1, 1, 1);
@@ -300,17 +266,17 @@ public:
 "border-radius:30"));
         gridLayout_16 = new QGridLayout(widget_15);
         gridLayout_16->setObjectName("gridLayout_16");
-        LEDuration = new QLineEdit(widget_15);
-        LEDuration->setObjectName("LEDuration");
-        LEDuration->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
+        LEReason = new QLineEdit(widget_15);
+        LEReason->setObjectName("LEReason");
+        LEReason->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
 "border-bottom: 2px solid white;\n"
 "color:white;\n"
 "height: 25px;\n"
 "margin: 10 25"));
-        LEDuration->setMaxLength(45);
-        LEDuration->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LEReason->setMaxLength(45);
+        LEReason->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout_16->addWidget(LEDuration, 0, 0, 1, 1);
+        gridLayout_16->addWidget(LEReason, 0, 0, 1, 1);
 
 
         gridLayout_3->addWidget(widget_15, 4, 1, 1, 1);
@@ -333,17 +299,17 @@ public:
 
         gridLayout_3->addWidget(widget_8, 5, 0, 1, 1);
 
-        CBPermissions_3 = new QComboBox(widget_3);
-        CBPermissions_3->addItem(QString());
-        CBPermissions_3->addItem(QString());
-        CBPermissions_3->addItem(QString());
-        CBPermissions_3->addItem(QString());
-        CBPermissions_3->setObjectName("CBPermissions_3");
-        CBPermissions_3->setMinimumSize(QSize(0, 60));
-        CBPermissions_3->setMaximumSize(QSize(16777215, 40));
-        CBPermissions_3->setFont(font);
-        CBPermissions_3->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-        CBPermissions_3->setStyleSheet(QString::fromUtf8("\n"
+        CBStatus = new QComboBox(widget_3);
+        CBStatus->addItem(QString());
+        CBStatus->addItem(QString());
+        CBStatus->addItem(QString());
+        CBStatus->addItem(QString());
+        CBStatus->setObjectName("CBStatus");
+        CBStatus->setMinimumSize(QSize(0, 60));
+        CBStatus->setMaximumSize(QSize(16777215, 40));
+        CBStatus->setFont(font);
+        CBStatus->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+        CBStatus->setStyleSheet(QString::fromUtf8("\n"
 "	border-radius:0;\n"
 "    text-align: center;\n"
 "	background:white;\n"
@@ -352,9 +318,75 @@ public:
 "	border-top-right-radius:30;\n"
 "	color:black;\n"
 ""));
-        CBPermissions_3->setSizeAdjustPolicy(QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
+        CBStatus->setSizeAdjustPolicy(QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
 
-        gridLayout_3->addWidget(CBPermissions_3, 5, 1, 1, 1, Qt::AlignmentFlag::AlignTop);
+        gridLayout_3->addWidget(CBStatus, 5, 1, 1, 1, Qt::AlignmentFlag::AlignTop);
+
+        widget_4 = new QWidget(widget_3);
+        widget_4->setObjectName("widget_4");
+        verticalLayout = new QVBoxLayout(widget_4);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        widget_10 = new QWidget(widget_4);
+        widget_10->setObjectName("widget_10");
+        gridLayout_5 = new QGridLayout(widget_10);
+        gridLayout_5->setObjectName("gridLayout_5");
+        gridLayout_5->setContentsMargins(0, 0, 0, 0);
+        LPatientFullName = new QLabel(widget_10);
+        LPatientFullName->setObjectName("LPatientFullName");
+        LPatientFullName->setFont(font);
+        LPatientFullName->setStyleSheet(QString::fromUtf8("background:white;\n"
+"color:black;\n"
+"border-bottom:3px solid #4C5958;"));
+        LPatientFullName->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_5->addWidget(LPatientFullName, 0, 0, 1, 1);
+
+
+        verticalLayout->addWidget(widget_10);
+
+        widget_9 = new QWidget(widget_4);
+        widget_9->setObjectName("widget_9");
+        horizontalLayout = new QHBoxLayout(widget_9);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        PBSelectPatient = new QPushButton(widget_9);
+        PBSelectPatient->setObjectName("PBSelectPatient");
+        PBSelectPatient->setMinimumSize(QSize(0, 60));
+        PBSelectPatient->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:30;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #4C5958;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+
+        horizontalLayout->addWidget(PBSelectPatient);
+
+        PBAddNewPatient = new QPushButton(widget_9);
+        PBAddNewPatient->setObjectName("PBAddNewPatient");
+        PBAddNewPatient->setMinimumSize(QSize(0, 60));
+        PBAddNewPatient->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:30;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #4C5958;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+
+        horizontalLayout->addWidget(PBAddNewPatient);
+
+
+        verticalLayout->addWidget(widget_9);
+
+
+        gridLayout_3->addWidget(widget_4, 1, 1, 1, 1);
 
 
         gridLayout_2->addWidget(widget_3, 0, 0, 1, 1);
@@ -410,8 +442,8 @@ public:
         retranslateUi(AddAppointmentWindow);
 
         CBUsers->setCurrentIndex(-1);
-        CBPermissions_4->setCurrentIndex(-1);
-        CBPermissions_3->setCurrentIndex(-1);
+        CBServices->setCurrentIndex(-1);
+        CBStatus->setCurrentIndex(-1);
 
 
         QMetaObject::connectSlotsByName(AddAppointmentWindow);
@@ -422,17 +454,18 @@ public:
         AddAppointmentWindow->setWindowTitle(QCoreApplication::translate("AddAppointmentWindow", "Dialog", nullptr));
         label_7->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\200\320\260\321\207", nullptr));
         label_6->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\320\260\321\206\320\270\320\265\320\275\321\202", nullptr));
-        pushButton->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\275\320\276\320\262\320\276\320\263\320\276", nullptr));
         label_13->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\321\200\320\276\321\206\320\265\320\264\321\203\321\200\320\260", nullptr));
         label_5->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\260\321\202\320\260", nullptr));
         label_12->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\321\200\320\270\321\207\320\270\320\275\320\260", nullptr));
         label_11->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
-        CBPermissions_3->setItemText(0, QCoreApplication::translate("AddAppointmentWindow", "\320\227\320\260\320\262\320\265\321\200\321\210\320\265\320\275\320\276", nullptr));
-        CBPermissions_3->setItemText(1, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\276\320\266\320\270\320\264\320\260\320\275\320\270\320\270", nullptr));
-        CBPermissions_3->setItemText(2, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\277\321\200\320\276\321\206\320\265\321\201\321\201\320\265", nullptr));
-        CBPermissions_3->setItemText(3, QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\265\320\275\320\276", nullptr));
+        CBStatus->setItemText(0, QCoreApplication::translate("AddAppointmentWindow", "\320\227\320\260\320\262\320\265\321\200\321\210\320\265\320\275\320\276", nullptr));
+        CBStatus->setItemText(1, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\276\320\266\320\270\320\264\320\260\320\275\320\270\320\270", nullptr));
+        CBStatus->setItemText(2, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\277\321\200\320\276\321\206\320\265\321\201\321\201\320\265", nullptr));
+        CBStatus->setItemText(3, QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\265\320\275\320\276", nullptr));
 
+        LPatientFullName->setText(QString());
+        PBSelectPatient->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
+        PBAddNewPatient->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\275\320\276\320\262\320\276\320\263\320\276", nullptr));
         PBCancel->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\260", nullptr));
         PBAdd->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
     } // retranslateUi

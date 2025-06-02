@@ -80,7 +80,7 @@ void mainmenuwindow::on_PBPacientList_clicked()
 
     QStringList headers =  {"Номер","Имя","Фамилия","Отчество"};
     DataTable(ui->TVPatients,"id,patientname,patientsurname,patientpatronymic",Database().getDbName() +".patients",headers);
-    ui->TVPatients->show();
+
     ui->LMenuName->setText("Список пациентов");
 }
 
@@ -160,7 +160,7 @@ void mainmenuwindow::on_LESecondName_returnPressed()
 
 void mainmenuwindow::on_PBPatietTableAdd_clicked()
 {
-    AddPatientWindow addPW;
+    AddPatientWindow addPW(this);
     addPW.setModal(true);
     addPW.exec();
     on_PBPacientList_clicked();
@@ -211,7 +211,7 @@ void mainmenuwindow::on_PBPatientTableEdit_clicked()
         QMessageBox::warning(this,"Ошибка","Ни один пациент не был выделен");
         return;
     }
-    editpatientwindow editPW(patientId);
+    editpatientwindow editPW(patientId,this);
     editPW.setModal(true);
     editPW.exec();
     on_PBPacientList_clicked();
@@ -232,7 +232,7 @@ int mainmenuwindow::getId(QTableView *table){
 
 void mainmenuwindow::on_PBServiceTableAdd_clicked()
 {
-    AddServiceWindow window;
+    AddServiceWindow window(this);
     window.setModal(true);
     window.exec();
     window.deleteLater();
@@ -276,7 +276,12 @@ void mainmenuwindow::on_PBServiceTableDelete_clicked()
 
 void mainmenuwindow::on_PBServiceTableEdit_clicked()
 {
-    EditServiceWindow window(getId(ui->TVServices));
+    int patientId = getId(ui->TVPatients);
+    if(patientId == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна процедура не была выделена");
+        return;
+    }
+    EditServiceWindow window(patientId,this);
     window.setModal(true);
     window.exec();
     window.deleteLater();
@@ -395,7 +400,7 @@ void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
 
 void mainmenuwindow::on_PBAppointmentAdd_clicked()
 {
-    AddAppointmentWindow window;
+    AddAppointmentWindow window(this);
     window.setModal(true);
     window.exec();
     window.deleteLater();

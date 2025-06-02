@@ -14,6 +14,8 @@ class AddPatientWindow : public QDialog
 public:
     explicit AddPatientWindow(QWidget *parent = nullptr);
     ~AddPatientWindow();
+    QString getPatientFullName();
+    int getPatientId();
 
 private slots:
     void on_pushButton_2_clicked();
@@ -22,6 +24,8 @@ private slots:
 
 private:
     Ui::AddPatientWindow *ui;
+    QString patientFullName;
+    int patientId;
 };
 
 #endif // ADDPATIENTWINDOW_H

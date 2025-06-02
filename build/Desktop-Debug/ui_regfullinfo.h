@@ -247,7 +247,8 @@ public:
         label->setObjectName("label");
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("border:none;\n"
-"color:black;"));
+"color:black;\n"
+"background:none;"));
         label->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout_7->addWidget(label, 0, 0, 1, 1, Qt::AlignmentFlag::AlignTop);

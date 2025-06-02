@@ -674,7 +674,7 @@ border-bottom-right-radius:30
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="PAppointment">
        <property name="styleSheet">
@@ -1660,7 +1660,8 @@ QPushButton:hover{
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background:white</string>
+                 <string notr="true">background:white;
+border-radius:30;</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_10">
                  <item row="0" column="0">

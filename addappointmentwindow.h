@@ -18,8 +18,15 @@ public:
 private slots:
     void on_PBCancel_clicked();
 
+    void on_PBAdd_clicked();
+
+    void on_PBAddNewPatient_clicked();
+
+    void on_PBSelectPatient_clicked();
+
 private:
     Ui::AddAppointmentWindow *ui;
+    int patientId;
 };
 
 #endif // ADDAPPOINTMENTWINDOW_H

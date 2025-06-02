@@ -20,6 +20,7 @@ SOURCES += \
     authorizationwindow.cpp \
     mainmenuwindow.cpp \
     passwordhasher.cpp \
+    patienttablewindow.cpp \
     picture.cpp \
     regadminconfirm.cpp \
     regfullinfo.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     editservicewindow.h \
     mainmenuwindow.h \
     passwordhasher.h \
+    patienttablewindow.h \
     picture.h \
     regadminconfirm.h \
     regfullinfo.h \
@@ -50,6 +52,7 @@ FORMS += \
     editpatientwindow.ui \
     editservicewindow.ui \
     mainmenuwindow.ui \
+    patienttablewindow.ui \
     regadminconfirm.ui \
     regfullinfo.ui \
     settings.ui

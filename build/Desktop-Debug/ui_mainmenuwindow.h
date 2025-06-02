@@ -1156,7 +1156,8 @@ public:
         widget_20 = new QWidget(widget_30);
         widget_20->setObjectName("widget_20");
         widget_20->setMaximumSize(QSize(700, 600));
-        widget_20->setStyleSheet(QString::fromUtf8("background:white"));
+        widget_20->setStyleSheet(QString::fromUtf8("background:white;\n"
+"border-radius:30;"));
         gridLayout_10 = new QGridLayout(widget_20);
         gridLayout_10->setObjectName("gridLayout_10");
         TVPatients = new QTableView(widget_20);
@@ -1919,7 +1920,7 @@ public:
 
         retranslateUi(mainmenuwindow);
 
-        SWMenus->setCurrentIndex(0);
+        SWMenus->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(mainmenuwindow);

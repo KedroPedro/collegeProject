@@ -372,7 +372,8 @@ border-top:none;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">border:none;
-color:black;</string>
+color:black;
+background:none;</string>
         </property>
         <property name="text">
          <string>Регистрация</string>

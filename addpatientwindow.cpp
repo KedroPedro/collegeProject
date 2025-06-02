@@ -12,6 +12,7 @@
 AddPatientWindow::AddPatientWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::AddPatientWindow)
+    , patientFullName("")
 {
     ui->setupUi(this);
     QRegularExpression exp("[а-яА-Я]+");
@@ -44,6 +45,7 @@ void AddPatientWindow::on_pushButton_clicked()
             dateofbirth =   ui->LEDateOfBirth->text(),
             phonenumber =   ui->LEPhoneNumber->text();
 
+    patientFullName = surname + " " + name + " " + patronymic;
 
     QRegularExpression dateRegex(R"(^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$)");
     QRegularExpressionMatch match = dateRegex.match(dateofbirth);
@@ -96,3 +98,10 @@ void AddPatientWindow::on_pushButton_clicked()
     this->deleteLater();
 }
 
+QString AddPatientWindow::getPatientFullName(){
+    return patientFullName;
+}
+
+int AddPatientWindow::getPatientId(){
+    return patientId;
+}
