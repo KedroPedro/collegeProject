@@ -74,6 +74,8 @@ void AuthorizationWindow::on_PBEnterLogin_clicked()
     mmwindow.exec();
 
 
+    qApp->quit();
+
 }
 
 
