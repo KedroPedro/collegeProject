@@ -69,11 +69,73 @@ void AddAppointmentWindow::on_PBAdd_clicked()
     else if(reason == "") errorFlag = true;
     else if(status == "") errorFlag = true;
 
+
+
     if(errorFlag == true){
         QMessageBox::warning(this,"Ошибка","Все поля должны быть заполнены");
         return;
+    }else if(QDateTime::fromString(date, "yyyy-MM-dd HH:mm:ss") < QDateTime::currentDateTime()){
+        QMessageBox::warning(this,"Ошибка","Введенная дата и время не должны быть раньше текущей");
+        return;
     }
 
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+
+    QString dbName = Database().getDbName();
+
+    query.prepare("select serviceduration from " + dbName + ".services where servicename = :servicename");
+    query.bindValue(":servicename", service);
+    query.exec();
+    query.next();
+
+    int duration = query.value(0).toInt();
+    QDateTime endTime = ui->DateTime->dateTime().addSecs(duration * 60);
+
+    query.prepare(
+        "select count(*) from " + dbName + ".visits "
+        "join " + dbName + ".visitservices on " + dbName + ".visits.id = " + dbName + ".visitservices.visitservicesvisitid "
+        "join " + dbName + ".services on " + dbName + ".visitservices.visitservicesserviceid = " + dbName + ".services.id "
+        "where " + dbName + ".visits.visituserid = (select id from " + dbName + ".users where userfullname = :username) "
+        "and ((" + dbName + ".visits.visitdate < :starttime and date_add("
+        + dbName + ".visits.visitdate, interval " + dbName + ".services.serviceduration minute) > :starttime) or "
+        "(" + dbName + ".visits.visitdate between :starttime and :endtime) or "
+        "(date_add(" + dbName + ".visits.visitdate, interval "
+        + dbName + ".services.serviceduration minute) between :starttime and :endtime))");
+
+    query.bindValue(":username", user);
+    query.bindValue(":starttime", date);
+    query.bindValue(":endtime", endTime.toString("yyyy-MM-dd HH:mm:ss"));
+
+    query.next();
+
+    if(query.value(0).toInt() > 0) {
+        QMessageBox::warning(this,"Ошибка","Врач уже занят в указанный период, измените время");
+        return;
+    }
+
+    query.prepare("insert into "+Database().getDbName()+".visits "
+                "(visitpatientid,visituserid,visitdate,visitreason,visitstatus) "
+                "values (:vpid, (select id from "+Database().getDbName()+".users where userfullname = :un), :vd, :vr, :vs) ");
+    query.bindValue(":vpid",patientId);
+    query.bindValue(":un",user);
+    query.bindValue(":vd",date);
+    query.bindValue(":vr",reason);
+    query.bindValue(":vs",status);
+    query.exec();
+
+    int visitId = query.lastInsertId().toInt();
+
+    query.prepare("insert into "+Database().getDbName()+".visitservices "
+                    "(visitservicesvisitid, visitservicesserviceid) "
+                    "values (:vi,(select id from "+Database().getDbName()+".services where servicename = :sn))");
+    query.bindValue(":vi",visitId);
+    query.bindValue(":sn",service);
+    query.exec();
+
+
+
+    QMessageBox::information(this,"Успех","Запись была добавлена в таблицу");
+    this->close();
 
 }
 

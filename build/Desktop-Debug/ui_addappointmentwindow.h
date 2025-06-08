@@ -78,6 +78,8 @@ public:
         if (AddAppointmentWindow->objectName().isEmpty())
             AddAppointmentWindow->setObjectName("AddAppointmentWindow");
         AddAppointmentWindow->resize(528, 597);
+        AddAppointmentWindow->setMinimumSize(QSize(528, 597));
+        AddAppointmentWindow->setMaximumSize(QSize(528, 597));
         AddAppointmentWindow->setStyleSheet(QString::fromUtf8("background-color:#3B8C6E"));
         gridLayout = new QGridLayout(AddAppointmentWindow);
         gridLayout->setObjectName("gridLayout");
@@ -302,8 +304,6 @@ public:
         CBStatus = new QComboBox(widget_3);
         CBStatus->addItem(QString());
         CBStatus->addItem(QString());
-        CBStatus->addItem(QString());
-        CBStatus->addItem(QString());
         CBStatus->setObjectName("CBStatus");
         CBStatus->setMinimumSize(QSize(0, 60));
         CBStatus->setMaximumSize(QSize(16777215, 40));
@@ -443,7 +443,7 @@ public:
 
         CBUsers->setCurrentIndex(-1);
         CBServices->setCurrentIndex(-1);
-        CBStatus->setCurrentIndex(-1);
+        CBStatus->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(AddAppointmentWindow);
@@ -458,10 +458,8 @@ public:
         label_5->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\260\321\202\320\260", nullptr));
         label_12->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\321\200\320\270\321\207\320\270\320\275\320\260", nullptr));
         label_11->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
-        CBStatus->setItemText(0, QCoreApplication::translate("AddAppointmentWindow", "\320\227\320\260\320\262\320\265\321\200\321\210\320\265\320\275\320\276", nullptr));
-        CBStatus->setItemText(1, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\276\320\266\320\270\320\264\320\260\320\275\320\270\320\270", nullptr));
-        CBStatus->setItemText(2, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\277\321\200\320\276\321\206\320\265\321\201\321\201\320\265", nullptr));
-        CBStatus->setItemText(3, QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\265\320\275\320\276", nullptr));
+        CBStatus->setItemText(0, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\276\320\266\320\270\320\264\320\260\320\275\320\270\320\270", nullptr));
+        CBStatus->setItemText(1, QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\265\320\275\320\276", nullptr));
 
         LPatientFullName->setText(QString());
         PBSelectPatient->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));

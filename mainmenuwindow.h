@@ -65,6 +65,10 @@ private slots:
 
     void on_PBAppointmentAdd_clicked();
 
+    void on_PBAppointmentEdit_clicked();
+
+    void on_PBAppointmentDelete_clicked();
+
 private:
     Ui::mainmenuwindow *ui;
 };

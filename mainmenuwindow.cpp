@@ -8,6 +8,7 @@
 #include "addservicewindow.h"
 #include "editservicewindow.h"
 #include "addappointmentwindow.h"
+#include "editappointmentwindow.h"
 
 #include <QSqlError>
 #include <QTableView>
@@ -146,7 +147,7 @@ void mainmenuwindow::on_PBAppointment_clicked()
     ui->SWMenus->setCurrentWidget(ui->PAppointment);
     ui->LMenuName->setText("Записи на прием");
     on_CWAppointments_clicked(QDate::currentDate());
-    ui->TVAppointments->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 }
 
 
@@ -345,21 +346,21 @@ void mainmenuwindow::on_PBServiceFind_clicked()
 void mainmenuwindow::on_CWAppointments_clicked(const QDate &date)
 {
     QString db = Database().getDbName();
-    QStringList headers = {"id","Дата и время","ФИО врача"};
+    QStringList headers = {"id","Дата и время","Статус","ФИО врача"};
     DataTable(
         ui->TVAppointments,
-        db + ".visits.id, "
-            "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, " +
+            db + ".visits.id, "
+                 "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, " +
+            db + ".visits.visitstatus, " +
             db + ".users.userfullname",
         db + ".visits "
-            "JOIN " + db + ".users ON " + db + ".users.id = " + db + ".visits.visituserid "
-            "WHERE " + db + ".visits.visitdate >= '" + date.toString(Qt::ISODate) + " 00:00:00' "
-            "AND " + db + ".visits.visitdate < '" + date.addDays(1).toString(Qt::ISODate) + " 00:00:00'",
-
-        headers
-        );
+            "join " + db + ".users on " + db + ".users.id = " + db + ".visits.visituserid "
+            "where " + db + ".visits.visitdate >= '" + date.toString(Qt::ISODate) + " 00:00:00' "
+            "and " + db + ".visits.visitdate < '" + date.addDays(1).toString(Qt::ISODate) + " 00:00:00'",
+        headers);
     ui->TVAppointments->hideColumn(0);
-
+    ui->TVAppointments->setColumnWidth(1,150);
+    ui->TVAppointments->setColumnWidth(2,110);
 }
 
 
@@ -370,21 +371,23 @@ void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
     QString db = Database().getDbName();
 
-    query.prepare(    "select "
-                      "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, " +
-                      db + ".patients.patientname, " +
-                      db + ".patients.patientsurname, " +
-                      db + ".patients.patientpatronymic, " +
-                      db + ".users.userfullname, " +
-                      db + ".services.servicename, " +
-                      db + ".services.serviceduration " +
-                      "from " + db + ".visits " +
-                      "join " + db + ".patients on " + db + ".patients.id = " + db + ".visits.visitpatientid " +
-                      "join " + db + ".users on " + db + ".users.id = " + db + ".visits.visituserid " +
-                      "join " + db + ".services on " + db + ".services.id = " +
-                      "(select visitservicesserviceid from " + db + ".visitservices " +
-                      "where visitservicesvisitid = " + db + ".visits.id limit 1) " +
-                      "where " + db + ".visits.id = :id");
+    query.prepare(
+        "select "
+        "date_format(" + db + ".visits.visitdate, '%d.%m.%Y %H:%i') as formdate, "
+        + db +  ".patients.patientname, "
+        + db +  ".patients.patientsurname, "
+        + db +  ".patients.patientpatronymic, "
+        + db +  ".users.userfullname, "
+                "(select " + db + ".services.servicename from " + db + ".services "
+                "join " + db + ".visitservices on " + db + ".services.id = " + db + ".visitservices.visitservicesserviceid "
+                "where " + db + ".visitservices.visitservicesvisitid = " + db + ".visits.id limit 1) as servicename, "
+                "(select " + db + ".services.serviceduration from " + db + ".services "
+                "join " + db + ".visitservices on " + db + ".services.id = " + db + ".visitservices.visitservicesserviceid "
+                "where " + db + ".visitservices.visitservicesvisitid = " + db + ".visits.id limit 1) as serviceduration "
+                "from " + db + ".visits "
+                "join " + db + ".patients on " + db + ".patients.id = " + db + ".visits.visitpatientid "
+                "join " + db + ".users on " + db + ".users.id = " + db + ".visits.visituserid "
+                "where " + db + ".visits.id = :id");
     query.bindValue(":id", appointId);
     query.exec();
     query.next();
@@ -404,5 +407,81 @@ void mainmenuwindow::on_PBAppointmentAdd_clicked()
     window.setModal(true);
     window.exec();
     window.deleteLater();
+    on_PBAppointment_clicked();
+}
+
+
+void mainmenuwindow::on_PBAppointmentEdit_clicked()
+{
+    int id = getId(ui->TVAppointments);
+    if(id == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна запись не была выделена");
+        return;
+    }
+
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("select visitstatus from "+Database().getDbName()+".visits where id = :id");
+    query.bindValue(":id",id);
+    query.exec();
+    query.next();
+
+
+    if(query.value(0).toString() == "Завершено"){
+        QMessageBox::warning(this,"Ошибка","Эта процедура уже была завершена, её изменение невозможно");
+        return;
+    }
+
+    EditAppointmentWindow window(id,this);
+    window.setModal(true);
+    window.exec();
+    window.deleteLater();
+    on_CWAppointments_clicked(ui->CWAppointments->selectedDate());
+}
+
+
+void mainmenuwindow::on_PBAppointmentDelete_clicked()
+{
+    int result = QMessageBox::question(this,"Подтверждение","Вы уверены что хотите удалить данную процедуру?",
+                                       QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
+    if(result == QMessageBox::No){
+        return;
+    }
+
+    int id = getId(ui->TVAppointments);
+    if(id == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна запись не была выделена");
+        return;
+    }
+
+    QString db = Database().getDbName();
+
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("select visitstatus from "+db+".visits where id = :id");
+    query.bindValue(":id",id);
+    query.exec();
+    query.next();
+
+    if(query.value(0).toString() == "Завершено"){
+        QMessageBox::warning(this,"Ошибка","Нельзя удалить запись, которая уже была завершена");
+        return;
+    }
+
+
+
+    query.prepare("delete from " + db + ".visitservices where visitservicesvisitid = :id");
+    query.bindValue(":id",id);
+    query.exec();
+
+    query.prepare("delete from " + db + ".visits where id = :id");
+    query.bindValue(":id",id);
+    query.exec();
+    on_CWAppointments_clicked(ui->CWAppointments->selectedDate());
+
+    ui->LAppointmentsDate->setText("");
+    ui->LAppointmentsDuration->setText("");
+    ui->LAppointmentsMedic->setText("");
+    ui->LAppointmentsPatient->setText("");
+    ui->LAppointmentsService->setText("");
+
 }
 

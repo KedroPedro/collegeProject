@@ -987,6 +987,7 @@ public:
 "    color: black;\n"
 "}"));
         TVAppointments->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
+        TVAppointments->horizontalHeader()->setDefaultSectionSize(150);
         TVAppointments->horizontalHeader()->setStretchLastSection(true);
 
         gridLayout_41->addWidget(TVAppointments, 0, 0, 1, 1);
@@ -1920,7 +1921,7 @@ public:
 
         retranslateUi(mainmenuwindow);
 
-        SWMenus->setCurrentIndex(2);
+        SWMenus->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(mainmenuwindow);
