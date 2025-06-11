@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Добавление записи</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:#3B8C6E</string>
@@ -472,11 +472,6 @@ border-radius:30</string>
            <item>
             <property name="text">
              <string>В ожидании</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Отменено</string>
             </property>
            </item>
           </widget>

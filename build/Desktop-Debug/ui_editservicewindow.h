@@ -305,7 +305,7 @@ public:
 
     void retranslateUi(QDialog *EditServiceWindow)
     {
-        EditServiceWindow->setWindowTitle(QCoreApplication::translate("EditServiceWindow", "Dialog", nullptr));
+        EditServiceWindow->setWindowTitle(QCoreApplication::translate("EditServiceWindow", "\320\230\320\267\320\274\320\265\320\275\320\265\320\275\320\270\320\265 \320\277\321\200\320\276\321\206\320\265\320\264\321\203\321\200\321\213", nullptr));
         PBCancel->setText(QCoreApplication::translate("EditServiceWindow", "\320\236\321\202\320\274\320\265\320\275\320\260", nullptr));
         PBChange->setText(QCoreApplication::translate("EditServiceWindow", "\320\230\320\267\320\274\320\265\320\275\320\270\321\202\321\214", nullptr));
         label_6->setText(QCoreApplication::translate("EditServiceWindow", "\320\235\320\260\320\267\320\262\320\260\320\275\320\270\320\265", nullptr));

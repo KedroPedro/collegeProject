@@ -42,7 +42,6 @@ void RegAdminConfirm::on_PBConfirm_clicked()
     }
 
     confirmed = true;
-    return;
     this->close();
 }
 

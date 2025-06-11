@@ -401,7 +401,7 @@ public:
 
     void retranslateUi(QDialog *AddPatientWindow)
     {
-        AddPatientWindow->setWindowTitle(QCoreApplication::translate("AddPatientWindow", "Dialog", nullptr));
+        AddPatientWindow->setWindowTitle(QCoreApplication::translate("AddPatientWindow", "\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 \320\277\320\260\321\206\320\270\320\265\320\275\321\202\320\260", nullptr));
         label_2->setText(QCoreApplication::translate("AddPatientWindow", "\320\220\320\264\321\200\320\265\321\201", nullptr));
         label_3->setText(QCoreApplication::translate("AddPatientWindow", "\320\224\320\260\321\202\320\260 \321\200\320\276\320\266\320\264\320\265\320\275\320\270\321\217", nullptr));
         LEPhoneNumber->setInputMask(QCoreApplication::translate("AddPatientWindow", "+375 (99) 999 99 99", nullptr));

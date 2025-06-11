@@ -267,7 +267,7 @@ public:
 
     void retranslateUi(QDialog *RegFullInfo)
     {
-        RegFullInfo->setWindowTitle(QCoreApplication::translate("RegFullInfo", "Dialog", nullptr));
+        RegFullInfo->setWindowTitle(QCoreApplication::translate("RegFullInfo", "\320\240\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\321\217 \320\264\320\260\320\275\320\275\321\213\321\205", nullptr));
         CBPermissions->setItemText(0, QCoreApplication::translate("RegFullInfo", "\320\237\320\276\320\273\321\214\320\267\320\276\320\262\320\260\321\202\320\265\320\273\321\214", nullptr));
         CBPermissions->setItemText(1, QCoreApplication::translate("RegFullInfo", "\320\220\320\264\320\274\320\270\320\275\320\270\321\201\321\202\321\200\320\260\321\202\320\276\321\200", nullptr));
 

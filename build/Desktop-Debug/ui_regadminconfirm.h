@@ -139,6 +139,7 @@ public:
 "height: 25px;\n"
 "margin: 10 25;\n"
 "color:black;"));
+        LEAdminPassword->setEchoMode(QLineEdit::EchoMode::Password);
         LEAdminPassword->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout_3->addWidget(LEAdminPassword, 0, 0, 1, 1);
@@ -230,14 +231,14 @@ public:
 
     void retranslateUi(QDialog *RegAdminConfirm)
     {
-        RegAdminConfirm->setWindowTitle(QCoreApplication::translate("RegAdminConfirm", "Dialog", nullptr));
+        RegAdminConfirm->setWindowTitle(QCoreApplication::translate("RegAdminConfirm", "\320\237\320\276\320\264\321\202\320\262\320\265\321\200\320\266\320\264\320\265\320\275\320\270\320\265", nullptr));
         label->setText(QCoreApplication::translate("RegAdminConfirm", "\320\240\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\321\217", nullptr));
         LEAdminLogin->setPlaceholderText(QCoreApplication::translate("RegAdminConfirm", "\320\233\320\276\320\263\320\270\320\275 ", nullptr));
         LEAdminPassword->setPlaceholderText(QCoreApplication::translate("RegAdminConfirm", "\320\237\320\260\321\200\320\276\320\273\321\214", nullptr));
         PBCancel->setText(QCoreApplication::translate("RegAdminConfirm", "\320\236\321\202\320\274\320\265\320\275\320\260", nullptr));
         PBConfirm->setText(QCoreApplication::translate("RegAdminConfirm", "\320\237\320\276\320\264\321\202\320\262\320\265\321\200\320\264\320\270\321\202\321\214", nullptr));
         label_2->setText(QString());
-        label_3->setText(QCoreApplication::translate("RegAdminConfirm", "\320\224\320\273\321\217 \321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\320\270 \320\260\320\272\320\272\320\260\321\203\320\275\321\202\320\260 \321\201 \320\277\321\200\320\260\320\262\320\260\320\274\320\270 \320\260\320\264\320\274\320\270\320\275\320\270\321\201\321\202\321\200\320\260\321\202\320\276\321\200\320\260 \321\202\321\200\320\265\320\261\321\203\320\265\321\202\321\201\321\217 \320\277\320\276\320\264\321\202\320\262\320\265\321\200\320\266\320\264\320\265\320\275\320\270\320\265 \320\260\320\264\320\274\320\270\320\275\320\270\321\201\321\202\321\200\320\260\321\202\320\276\321\200\320\260", nullptr));
+        label_3->setText(QCoreApplication::translate("RegAdminConfirm", "\320\224\320\273\321\217 \321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\320\270 \320\260\320\272\320\272\320\260\321\203\320\275\321\202\320\260 \321\201 \320\277\321\200\320\260\320\262\320\260\320\274\320\270 \320\260\320\264\320\274\320\270\320\275\320\270\321\201\321\202\321\200\320\260\321\202\320\276\321\200\320\260 \321\202\321\200\320\265\320\261\321\203\320\265\321\202\321\201\321\217 \320\277\320\276\320\264\321\202\320\262\320\265\321\200\320\266\320\264\320\265\320\275\320\270\320\265 \320\264\321\200\321\203\320\263\320\276\320\263\320\276 \320\260\320\264\320\274\320\270\320\275\320\270\321\201\321\202\321\200\320\260\321\202\320\276\321\200\320\260", nullptr));
     } // retranslateUi
 
 };

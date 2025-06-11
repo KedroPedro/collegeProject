@@ -25,7 +25,8 @@ SOURCES += \
     picture.cpp \
     regadminconfirm.cpp \
     regfullinfo.cpp \
-    settings.cpp
+    settings.cpp \
+    usertablewindow.cpp
 
 HEADERS += \
     addappointmentwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
     picture.h \
     regadminconfirm.h \
     regfullinfo.h \
-    settings.h
+    settings.h \
+    usertablewindow.h
 
 
 FORMS += \
@@ -58,7 +60,8 @@ FORMS += \
     patienttablewindow.ui \
     regadminconfirm.ui \
     regfullinfo.ui \
-    settings.ui
+    settings.ui \
+    usertablewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

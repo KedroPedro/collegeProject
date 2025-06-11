@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
@@ -52,6 +53,9 @@ public:
         if (AuthorizationWindow->objectName().isEmpty())
             AuthorizationWindow->setObjectName("AuthorizationWindow");
         AuthorizationWindow->resize(300, 400);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../../../\320\230\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\321\217/whitewindowlogo.ico"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        AuthorizationWindow->setWindowIcon(icon);
         AuthorizationWindow->setStyleSheet(QString::fromUtf8("background-color:white"));
         actionlkjlj = new QAction(AuthorizationWindow);
         actionlkjlj->setObjectName("actionlkjlj");
@@ -283,7 +287,7 @@ public:
 
     void retranslateUi(QMainWindow *AuthorizationWindow)
     {
-        AuthorizationWindow->setWindowTitle(QCoreApplication::translate("AuthorizationWindow", "AuthorizationWindow", nullptr));
+        AuthorizationWindow->setWindowTitle(QCoreApplication::translate("AuthorizationWindow", "\320\222\321\205\320\276\320\264 \320\270 \321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\260\321\206\320\270\321\217", nullptr));
         actionlkjlj->setText(QCoreApplication::translate("AuthorizationWindow", "lkjlj", nullptr));
         action->setText(QCoreApplication::translate("AuthorizationWindow", "\320\235\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270", nullptr));
         PBEnterLogin->setText(QCoreApplication::translate("AuthorizationWindow", "\320\222\321\205\320\276\320\264", nullptr));

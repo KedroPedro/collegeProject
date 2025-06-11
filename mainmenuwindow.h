@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QTableView>
+#include <QTimer>
 
 namespace Ui {
 class mainmenuwindow;
@@ -20,6 +21,9 @@ public slots:
     int getId(QTableView *table);
 private slots:
 
+    QString getTimeOfDayGreeting();
+
+    void updateClock();
 
     void on_PBMainMenu_clicked();
 
@@ -71,6 +75,7 @@ private slots:
 
 private:
     Ui::mainmenuwindow *ui;
+    QTimer* clockTimer;
 };
 
 #endif // MAINMENUWINDOW_H

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Подтверждение</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="topMargin">
@@ -171,6 +171,9 @@ height: 25px;
 margin: 10 25;
 color:black;</string>
               </property>
+              <property name="echoMode">
+               <enum>QLineEdit::EchoMode::Password</enum>
+              </property>
               <property name="alignment">
                <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
@@ -302,7 +305,7 @@ QPushButton:hover{
             <string notr="true">color:gray;</string>
            </property>
            <property name="text">
-            <string>Для регистрации аккаунта с правами администратора требуется подтверждение администратора</string>
+            <string>Для регистрации аккаунта с правами администратора требуется подтверждение другого администратора</string>
            </property>
            <property name="textFormat">
             <enum>Qt::TextFormat::AutoText</enum>

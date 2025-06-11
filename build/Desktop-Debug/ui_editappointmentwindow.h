@@ -453,7 +453,7 @@ public:
 
     void retranslateUi(QDialog *EditAppointmentWindow)
     {
-        EditAppointmentWindow->setWindowTitle(QCoreApplication::translate("EditAppointmentWindow", "Dialog", nullptr));
+        EditAppointmentWindow->setWindowTitle(QCoreApplication::translate("EditAppointmentWindow", "\320\230\320\267\320\274\320\265\320\275\320\265\320\275\320\270\320\265 \320\267\320\260\320\277\320\270\321\201\320\270", nullptr));
         label_7->setText(QCoreApplication::translate("EditAppointmentWindow", "\320\222\321\200\320\260\321\207", nullptr));
         label_6->setText(QCoreApplication::translate("EditAppointmentWindow", "\320\237\320\260\321\206\320\270\320\265\320\275\321\202", nullptr));
         label_13->setText(QCoreApplication::translate("EditAppointmentWindow", "\320\237\321\200\320\276\321\206\320\265\320\264\321\203\321\200\320\260", nullptr));

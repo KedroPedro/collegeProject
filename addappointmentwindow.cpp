@@ -30,7 +30,6 @@ AddAppointmentWindow::AddAppointmentWindow(QWidget *parent)
     ui->CBUsers->setCurrentIndex(-2);
     query.prepare("select servicename from "+Database().getDbName()+".services");
     query.exec();
-    query.next();
 
     while (query.next()) {
         if (!query.value(0).isNull()) {

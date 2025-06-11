@@ -163,7 +163,7 @@ public:
 
     void retranslateUi(QDialog *PatientTableWindow)
     {
-        PatientTableWindow->setWindowTitle(QCoreApplication::translate("PatientTableWindow", "Dialog", nullptr));
+        PatientTableWindow->setWindowTitle(QCoreApplication::translate("PatientTableWindow", "\320\242\320\260\320\261\320\273\320\270\321\206\320\260 \320\277\320\260\321\206\320\270\320\265\320\275\321\202\320\276\320\262", nullptr));
         LESecondName->setPlaceholderText(QCoreApplication::translate("PatientTableWindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\204\320\260\320\274\320\270\320\273\320\270\321\216", nullptr));
         PBFindPatient->setText(QCoreApplication::translate("PatientTableWindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
         LLens->setText(QString());

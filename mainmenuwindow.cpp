@@ -21,11 +21,14 @@
 #include <QMessageBox>
 #include <QSqlRecord>
 #include <QTableView>
+#include <QTimer>
+#include <QDateTime>
 
 
 mainmenuwindow::mainmenuwindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::mainmenuwindow)
+    , clockTimer(new QTimer(this))
 {
 
     ui->setupUi(this);
@@ -47,6 +50,12 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
 
     if(permission == "Пользователь"){
         picturePath = "pictures/user.png";
+        ui->AdminPanel1->setEnabled(false);
+        ui->AdminPanel1->setVisible(false);
+        ui->AdminPanel2->setEnabled(false);
+        ui->AdminPanel2->setVisible(false);
+        ui->AdminPanel3->setEnabled(false);
+        ui->AdminPanel3->setVisible(false);
     }else{
         picturePath = "pictures/administrator.png";
     }
@@ -59,23 +68,41 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
     QRegularExpressionValidator *validator = new QRegularExpressionValidator(exp,this);
 
     ui->LESecondName->setValidator(validator);
+    Picture(ui->LMainMenuLogo,"pictures/blacklogo.png");
+    ui->LMainMenuInfoFullName->setText(ui->LProfileName->text());
+    ui->LMainMenuInfoAccount->setText(ui->LProfileUsername->text());
+    ui->LMainMenuInfoPermission->setText(ui->LProfilePermission->text());
+
+    connect(clockTimer,&QTimer::timeout,this,&mainmenuwindow::updateClock);
+    clockTimer->start(1000);
+    updateClock();
+    ui->LMainMenuDayGreeting->setText(getTimeOfDayGreeting());
 }
 
 mainmenuwindow::~mainmenuwindow()
 {
+    clockTimer->stop();
     delete ui;
 
 }
 
 void mainmenuwindow::on_PBMainMenu_clicked()
 {
+    if(!clockTimer->isActive()){
+        clockTimer->start(1000);
+        updateClock();
+        ui->LMainMenuDayGreeting->setText(getTimeOfDayGreeting());
+    }
+
     ui->SWMenus->setCurrentWidget(ui->PMainMenu);
     ui->LMenuName->setText("Главное меню");
+
 }
 
 
 void mainmenuwindow::on_PBPacientList_clicked()
 {
+    clockTimer->stop();
     ui->SWMenus->setCurrentWidget(ui->PPacientList);
     Picture(ui->LLens,"pictures/blackLens.png");
 
@@ -134,6 +161,7 @@ void mainmenuwindow::on_PBFindPatient_clicked()
 
 void mainmenuwindow::on_PBServices_clicked()
 {
+    clockTimer->stop();
     QStringList headers = {"Номер","Название процедуры"};
     DataTable(ui->TVServices,"id,servicename",Database().getDbName()+".services",headers);
     ui->SWMenus->setCurrentWidget(ui->PServices);
@@ -144,6 +172,7 @@ void mainmenuwindow::on_PBServices_clicked()
 
 void mainmenuwindow::on_PBAppointment_clicked()
 {
+    clockTimer->stop();
     ui->SWMenus->setCurrentWidget(ui->PAppointment);
     ui->LMenuName->setText("Записи на прием");
     on_CWAppointments_clicked(QDate::currentDate());
@@ -381,9 +410,7 @@ void mainmenuwindow::on_TVAppointments_doubleClicked(const QModelIndex &index)
                 "(select " + db + ".services.servicename from " + db + ".services "
                 "join " + db + ".visitservices on " + db + ".services.id = " + db + ".visitservices.visitservicesserviceid "
                 "where " + db + ".visitservices.visitservicesvisitid = " + db + ".visits.id limit 1) as servicename, "
-                "(select " + db + ".services.serviceduration from " + db + ".services "
-                "join " + db + ".visitservices on " + db + ".services.id = " + db + ".visitservices.visitservicesserviceid "
-                "where " + db + ".visitservices.visitservicesvisitid = " + db + ".visits.id limit 1) as serviceduration "
+        + db +  ".visits.visitreason "
                 "from " + db + ".visits "
                 "join " + db + ".patients on " + db + ".patients.id = " + db + ".visits.visitpatientid "
                 "join " + db + ".users on " + db + ".users.id = " + db + ".visits.visituserid "
@@ -441,17 +468,18 @@ void mainmenuwindow::on_PBAppointmentEdit_clicked()
 
 void mainmenuwindow::on_PBAppointmentDelete_clicked()
 {
+    int id = getId(ui->TVAppointments);
+    if(id == -1){
+        QMessageBox::warning(this,"Ошибка","Ни одна запись не была выделена");
+        return;
+    }
+
     int result = QMessageBox::question(this,"Подтверждение","Вы уверены что хотите удалить данную процедуру?",
                                        QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
     if(result == QMessageBox::No){
         return;
     }
 
-    int id = getId(ui->TVAppointments);
-    if(id == -1){
-        QMessageBox::warning(this,"Ошибка","Ни одна запись не была выделена");
-        return;
-    }
 
     QString db = Database().getDbName();
 
@@ -482,6 +510,48 @@ void mainmenuwindow::on_PBAppointmentDelete_clicked()
     ui->LAppointmentsMedic->setText("");
     ui->LAppointmentsPatient->setText("");
     ui->LAppointmentsService->setText("");
+
+}
+
+void mainmenuwindow::updateClock(){
+    QDateTime currentTime = QDateTime::currentDateTime();
+    QString timeText = currentTime.toString("hh:mm:ss");
+    QString dateText = currentTime.toString("dd.MM.yyyy");
+
+    ui->LMainMenuDate->setText(dateText);
+    ui->LMainMenuTime->setText(timeText);
+}
+
+
+QString mainmenuwindow::getTimeOfDayGreeting(){
+    ui->LMainMenuSunrisePic->clear();
+    ui->LMainMenuDayPic->clear();
+    ui->LMainMenuSunsetPic->clear();
+    ui->LMainMenuNightPic->clear();
+
+    QTime currentTime = QTime::currentTime();
+    if (currentTime >= QTime(5, 0) && currentTime < QTime(12, 0)) {
+        Picture(ui->LMainMenuSunrisePic,"pictures/sunriseicon.png");
+        return "Доброе утро.";
+    }
+    else if (currentTime >= QTime(12, 0) && currentTime < QTime(18, 0)) {
+        Picture(ui->LMainMenuDayPic,"pictures/dayicon.png");
+        return "Добрый день.";
+    }
+    else if (currentTime >= QTime(18, 0) && currentTime < QTime(23, 0)) {
+        Picture(ui->LMainMenuSunsetPic,"pictures/sunseticon.png");
+        return "Добрый вечер.";
+    }
+    else {
+        Picture(ui->LMainMenuNightPic,"pictures/nighticon.png");
+        return "Доброй ночи.";
+    }
+
+
+}
+
+void mainmenuwindow::on_pushButton_clicked()
+{
 
 }
 

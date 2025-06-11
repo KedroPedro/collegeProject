@@ -10,6 +10,7 @@
 #define UI_MAINMENUWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QDialog>
@@ -129,13 +130,77 @@ public:
     QWidget *widget_64;
     QGridLayout *gridLayout_41;
     QTableView *TVAppointments;
-    QWidget *widget_80;
+    QWidget *AdminPanel1;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *PBAppointmentAdd;
     QPushButton *PBAppointmentEdit;
     QPushButton *PBAppointmentDelete;
     QWidget *widget_62;
     QWidget *PMainMenu;
+    QGridLayout *gridLayout_40;
+    QWidget *widget_94;
+    QVBoxLayout *verticalLayout_16;
+    QWidget *widget_83;
+    QVBoxLayout *verticalLayout_13;
+    QWidget *widget_84;
+    QGridLayout *gridLayout_72;
+    QLabel *LMainMenuDayGreeting;
+    QWidget *widget_85;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *LMainMenuSunrisePic;
+    QLabel *LMainMenuDayPic;
+    QLabel *LMainMenuSunsetPic;
+    QLabel *LMainMenuNightPic;
+    QWidget *widget_82;
+    QGridLayout *gridLayout_57;
+    QWidget *widget_44;
+    QGridLayout *gridLayout_58;
+    QWidget *widget_80;
+    QVBoxLayout *verticalLayout_15;
+    QWidget *widget_92;
+    QGridLayout *gridLayout_64;
+    QWidget *widget_81;
+    QGridLayout *gridLayout_59;
+    QLabel *label;
+    QWidget *widget_93;
+    QGridLayout *gridLayout_65;
+    QWidget *widget_89;
+    QGridLayout *gridLayout_67;
+    QLabel *label_3;
+    QWidget *widget_90;
+    QGridLayout *gridLayout_61;
+    QLabel *label_4;
+    QWidget *widget_91;
+    QGridLayout *gridLayout_62;
+    QLabel *label_5;
+    QWidget *widget_95;
+    QGridLayout *gridLayout_60;
+    QLabel *LMainMenuInfoFullName;
+    QWidget *widget_96;
+    QGridLayout *gridLayout_63;
+    QLabel *LMainMenuInfoAccount;
+    QWidget *widget_97;
+    QGridLayout *gridLayout_66;
+    QLabel *LMainMenuInfoPermission;
+    QWidget *widget_32;
+    QGridLayout *gridLayout_56;
+    QLabel *LMainMenuLogo;
+    QWidget *widget_86;
+    QVBoxLayout *verticalLayout_14;
+    QWidget *widget_88;
+    QGridLayout *gridLayout_70;
+    QLabel *LMainMenuDate;
+    QWidget *widget_87;
+    QGridLayout *gridLayout_68;
+    QWidget *widget_99;
+    QGridLayout *gridLayout_69;
+    QLabel *LMainMenuTime;
+    QWidget *widget_98;
+    QGridLayout *gridLayout_73;
+    QWidget *widget_100;
+    QGridLayout *gridLayout_71;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton;
     QWidget *PPacientList;
     QVBoxLayout *verticalLayout;
     QWidget *widget_18;
@@ -153,7 +218,7 @@ public:
     QWidget *widget_20;
     QGridLayout *gridLayout_10;
     QTableView *TVPatients;
-    QWidget *widget_32;
+    QWidget *AdminPanel2;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *PBPatietTableAdd;
     QPushButton *PBPatientTableEdit;
@@ -207,7 +272,7 @@ public:
     QWidget *widget_42;
     QGridLayout *gridLayout_22;
     QTableView *TVServices;
-    QWidget *widget_44;
+    QWidget *AdminPanel3;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *PBServiceTableAdd;
     QPushButton *PBServiceTableEdit;
@@ -264,6 +329,9 @@ public:
         sizePolicy.setHeightForWidth(mainmenuwindow->sizePolicy().hasHeightForWidth());
         mainmenuwindow->setSizePolicy(sizePolicy);
         mainmenuwindow->setMinimumSize(QSize(1500, 900));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../../../\320\230\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\321\217/whitewindowlogo.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        mainmenuwindow->setWindowIcon(icon);
         mainmenuwindow->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         mainmenuwindow->setStyleSheet(QString::fromUtf8("background-color:#3B8C6E"));
         gridLayout_8 = new QGridLayout(mainmenuwindow);
@@ -992,12 +1060,12 @@ public:
 
         gridLayout_41->addWidget(TVAppointments, 0, 0, 1, 1);
 
-        widget_80 = new QWidget(widget_64);
-        widget_80->setObjectName("widget_80");
-        widget_80->setMaximumSize(QSize(16777215, 60));
-        horizontalLayout_9 = new QHBoxLayout(widget_80);
+        AdminPanel1 = new QWidget(widget_64);
+        AdminPanel1->setObjectName("AdminPanel1");
+        AdminPanel1->setMaximumSize(QSize(16777215, 60));
+        horizontalLayout_9 = new QHBoxLayout(AdminPanel1);
         horizontalLayout_9->setObjectName("horizontalLayout_9");
-        PBAppointmentAdd = new QPushButton(widget_80);
+        PBAppointmentAdd = new QPushButton(AdminPanel1);
         PBAppointmentAdd->setObjectName("PBAppointmentAdd");
         PBAppointmentAdd->setMinimumSize(QSize(0, 40));
         PBAppointmentAdd->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1014,7 +1082,7 @@ public:
 
         horizontalLayout_9->addWidget(PBAppointmentAdd, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBAppointmentEdit = new QPushButton(widget_80);
+        PBAppointmentEdit = new QPushButton(AdminPanel1);
         PBAppointmentEdit->setObjectName("PBAppointmentEdit");
         PBAppointmentEdit->setEnabled(true);
         PBAppointmentEdit->setMinimumSize(QSize(0, 40));
@@ -1032,7 +1100,7 @@ public:
 
         horizontalLayout_9->addWidget(PBAppointmentEdit, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBAppointmentDelete = new QPushButton(widget_80);
+        PBAppointmentDelete = new QPushButton(AdminPanel1);
         PBAppointmentDelete->setObjectName("PBAppointmentDelete");
         PBAppointmentDelete->setMinimumSize(QSize(0, 40));
         PBAppointmentDelete->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1050,7 +1118,7 @@ public:
         horizontalLayout_9->addWidget(PBAppointmentDelete, 0, Qt::AlignmentFlag::AlignTop);
 
 
-        gridLayout_41->addWidget(widget_80, 1, 0, 1, 1);
+        gridLayout_41->addWidget(AdminPanel1, 1, 0, 1, 1);
 
 
         horizontalLayout_5->addWidget(widget_64);
@@ -1073,6 +1141,419 @@ public:
         PMainMenu->setStyleSheet(QString::fromUtf8("border-bottom-left-radius:30;\n"
 "border-bottom-right-radius:30\n"
 ""));
+        gridLayout_40 = new QGridLayout(PMainMenu);
+        gridLayout_40->setObjectName("gridLayout_40");
+        widget_94 = new QWidget(PMainMenu);
+        widget_94->setObjectName("widget_94");
+        verticalLayout_16 = new QVBoxLayout(widget_94);
+        verticalLayout_16->setObjectName("verticalLayout_16");
+        widget_83 = new QWidget(widget_94);
+        widget_83->setObjectName("widget_83");
+        widget_83->setMaximumSize(QSize(16777215, 210));
+        verticalLayout_13 = new QVBoxLayout(widget_83);
+        verticalLayout_13->setSpacing(0);
+        verticalLayout_13->setObjectName("verticalLayout_13");
+        widget_84 = new QWidget(widget_83);
+        widget_84->setObjectName("widget_84");
+        widget_84->setMaximumSize(QSize(16777215, 110));
+        widget_84->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
+"border-radius:0;\n"
+"border-top-left-radius:80;\n"
+"border-top-right-radius:40;\n"
+"border-bottom-right-radius:70;"));
+        gridLayout_72 = new QGridLayout(widget_84);
+        gridLayout_72->setObjectName("gridLayout_72");
+        LMainMenuDayGreeting = new QLabel(widget_84);
+        LMainMenuDayGreeting->setObjectName("LMainMenuDayGreeting");
+        LMainMenuDayGreeting->setMaximumSize(QSize(16777215, 16777215));
+        QFont font2;
+        font2.setPointSize(36);
+        LMainMenuDayGreeting->setFont(font2);
+        LMainMenuDayGreeting->setStyleSheet(QString::fromUtf8("background:none;\n"
+"color:white;"));
+        LMainMenuDayGreeting->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LMainMenuDayGreeting->setMargin(0);
+
+        gridLayout_72->addWidget(LMainMenuDayGreeting, 0, 0, 1, 1);
+
+
+        verticalLayout_13->addWidget(widget_84);
+
+        widget_85 = new QWidget(widget_83);
+        widget_85->setObjectName("widget_85");
+        widget_85->setMaximumSize(QSize(500, 80));
+        widget_85->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
+"border-radius:0;\n"
+"border-bottom-right-radius:70;\n"
+"border-bottom-left-radius:70;"));
+        horizontalLayout_10 = new QHBoxLayout(widget_85);
+        horizontalLayout_10->setObjectName("horizontalLayout_10");
+        LMainMenuSunrisePic = new QLabel(widget_85);
+        LMainMenuSunrisePic->setObjectName("LMainMenuSunrisePic");
+        LMainMenuSunrisePic->setMinimumSize(QSize(48, 48));
+        LMainMenuSunrisePic->setMaximumSize(QSize(60, 60));
+
+        horizontalLayout_10->addWidget(LMainMenuSunrisePic);
+
+        LMainMenuDayPic = new QLabel(widget_85);
+        LMainMenuDayPic->setObjectName("LMainMenuDayPic");
+        LMainMenuDayPic->setMinimumSize(QSize(48, 48));
+        LMainMenuDayPic->setMaximumSize(QSize(60, 60));
+
+        horizontalLayout_10->addWidget(LMainMenuDayPic);
+
+        LMainMenuSunsetPic = new QLabel(widget_85);
+        LMainMenuSunsetPic->setObjectName("LMainMenuSunsetPic");
+        LMainMenuSunsetPic->setMinimumSize(QSize(48, 48));
+        LMainMenuSunsetPic->setMaximumSize(QSize(60, 60));
+
+        horizontalLayout_10->addWidget(LMainMenuSunsetPic);
+
+        LMainMenuNightPic = new QLabel(widget_85);
+        LMainMenuNightPic->setObjectName("LMainMenuNightPic");
+        LMainMenuNightPic->setMinimumSize(QSize(48, 48));
+        LMainMenuNightPic->setMaximumSize(QSize(60, 60));
+        QFont font3;
+        font3.setPointSize(19);
+        LMainMenuNightPic->setFont(font3);
+
+        horizontalLayout_10->addWidget(LMainMenuNightPic);
+
+
+        verticalLayout_13->addWidget(widget_85);
+
+
+        verticalLayout_16->addWidget(widget_83);
+
+        widget_82 = new QWidget(widget_94);
+        widget_82->setObjectName("widget_82");
+        widget_82->setMinimumSize(QSize(0, 400));
+        gridLayout_57 = new QGridLayout(widget_82);
+        gridLayout_57->setObjectName("gridLayout_57");
+        widget_44 = new QWidget(widget_82);
+        widget_44->setObjectName("widget_44");
+        gridLayout_58 = new QGridLayout(widget_44);
+        gridLayout_58->setObjectName("gridLayout_58");
+        widget_80 = new QWidget(widget_44);
+        widget_80->setObjectName("widget_80");
+        sizePolicy.setHeightForWidth(widget_80->sizePolicy().hasHeightForWidth());
+        widget_80->setSizePolicy(sizePolicy);
+        widget_80->setMinimumSize(QSize(600, 0));
+        widget_80->setMaximumSize(QSize(900, 16777215));
+        widget_80->setStyleSheet(QString::fromUtf8("border-radius:70;\n"
+"background-color:#3E7C59;"));
+        verticalLayout_15 = new QVBoxLayout(widget_80);
+        verticalLayout_15->setObjectName("verticalLayout_15");
+        widget_92 = new QWidget(widget_80);
+        widget_92->setObjectName("widget_92");
+        widget_92->setStyleSheet(QString::fromUtf8("border-radius:45"));
+        gridLayout_64 = new QGridLayout(widget_92);
+        gridLayout_64->setObjectName("gridLayout_64");
+        widget_81 = new QWidget(widget_92);
+        widget_81->setObjectName("widget_81");
+        widget_81->setMaximumSize(QSize(16777215, 16777215));
+        widget_81->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_59 = new QGridLayout(widget_81);
+        gridLayout_59->setObjectName("gridLayout_59");
+        label = new QLabel(widget_81);
+        label->setObjectName("label");
+        QFont font4;
+        font4.setPointSize(15);
+        label->setFont(font4);
+        label->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label->setStyleSheet(QString::fromUtf8("color:white"));
+        label->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_59->addWidget(label, 0, 0, 1, 1);
+
+
+        gridLayout_64->addWidget(widget_81, 0, 0, 1, 1);
+
+
+        verticalLayout_15->addWidget(widget_92);
+
+        widget_93 = new QWidget(widget_80);
+        widget_93->setObjectName("widget_93");
+        gridLayout_65 = new QGridLayout(widget_93);
+        gridLayout_65->setObjectName("gridLayout_65");
+        widget_89 = new QWidget(widget_93);
+        widget_89->setObjectName("widget_89");
+        widget_89->setMaximumSize(QSize(150, 16777215));
+        widget_89->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_67 = new QGridLayout(widget_89);
+        gridLayout_67->setObjectName("gridLayout_67");
+        label_3 = new QLabel(widget_89);
+        label_3->setObjectName("label_3");
+        QFont font5;
+        font5.setPointSize(14);
+        label_3->setFont(font5);
+        label_3->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label_3->setStyleSheet(QString::fromUtf8("color:white"));
+        label_3->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_67->addWidget(label_3, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_89, 0, 0, 1, 1);
+
+        widget_90 = new QWidget(widget_93);
+        widget_90->setObjectName("widget_90");
+        widget_90->setMaximumSize(QSize(16777215, 16777215));
+        widget_90->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_61 = new QGridLayout(widget_90);
+        gridLayout_61->setObjectName("gridLayout_61");
+        label_4 = new QLabel(widget_90);
+        label_4->setObjectName("label_4");
+        label_4->setFont(font5);
+        label_4->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label_4->setStyleSheet(QString::fromUtf8("color:white"));
+        label_4->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_61->addWidget(label_4, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_90, 1, 0, 1, 1);
+
+        widget_91 = new QWidget(widget_93);
+        widget_91->setObjectName("widget_91");
+        widget_91->setMaximumSize(QSize(16777215, 16777215));
+        widget_91->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_62 = new QGridLayout(widget_91);
+        gridLayout_62->setObjectName("gridLayout_62");
+        label_5 = new QLabel(widget_91);
+        label_5->setObjectName("label_5");
+        label_5->setFont(font5);
+        label_5->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label_5->setStyleSheet(QString::fromUtf8("color:white"));
+        label_5->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_62->addWidget(label_5, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_91, 2, 0, 1, 1);
+
+        widget_95 = new QWidget(widget_93);
+        widget_95->setObjectName("widget_95");
+        widget_95->setMaximumSize(QSize(16777215, 16777215));
+        widget_95->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_60 = new QGridLayout(widget_95);
+        gridLayout_60->setObjectName("gridLayout_60");
+        LMainMenuInfoFullName = new QLabel(widget_95);
+        LMainMenuInfoFullName->setObjectName("LMainMenuInfoFullName");
+        LMainMenuInfoFullName->setFont(font5);
+        LMainMenuInfoFullName->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        LMainMenuInfoFullName->setStyleSheet(QString::fromUtf8("color:white"));
+        LMainMenuInfoFullName->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_60->addWidget(LMainMenuInfoFullName, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_95, 0, 1, 1, 1);
+
+        widget_96 = new QWidget(widget_93);
+        widget_96->setObjectName("widget_96");
+        widget_96->setMaximumSize(QSize(16777215, 16777215));
+        widget_96->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_63 = new QGridLayout(widget_96);
+        gridLayout_63->setObjectName("gridLayout_63");
+        LMainMenuInfoAccount = new QLabel(widget_96);
+        LMainMenuInfoAccount->setObjectName("LMainMenuInfoAccount");
+        LMainMenuInfoAccount->setFont(font5);
+        LMainMenuInfoAccount->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        LMainMenuInfoAccount->setStyleSheet(QString::fromUtf8("color:white"));
+        LMainMenuInfoAccount->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_63->addWidget(LMainMenuInfoAccount, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_96, 1, 1, 1, 1);
+
+        widget_97 = new QWidget(widget_93);
+        widget_97->setObjectName("widget_97");
+        widget_97->setMaximumSize(QSize(16777215, 16777215));
+        widget_97->setStyleSheet(QString::fromUtf8("background:#4C5958;\n"
+"border-radius:30"));
+        gridLayout_66 = new QGridLayout(widget_97);
+        gridLayout_66->setObjectName("gridLayout_66");
+        LMainMenuInfoPermission = new QLabel(widget_97);
+        LMainMenuInfoPermission->setObjectName("LMainMenuInfoPermission");
+        LMainMenuInfoPermission->setFont(font5);
+        LMainMenuInfoPermission->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        LMainMenuInfoPermission->setStyleSheet(QString::fromUtf8("color:white"));
+        LMainMenuInfoPermission->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_66->addWidget(LMainMenuInfoPermission, 0, 0, 1, 1);
+
+
+        gridLayout_65->addWidget(widget_97, 2, 1, 1, 1);
+
+        gridLayout_65->setColumnStretch(0, 1);
+        gridLayout_65->setColumnStretch(1, 2);
+
+        verticalLayout_15->addWidget(widget_93);
+
+        verticalLayout_15->setStretch(0, 1);
+        verticalLayout_15->setStretch(1, 3);
+
+        gridLayout_58->addWidget(widget_80, 0, 0, 1, 1);
+
+
+        gridLayout_57->addWidget(widget_44, 1, 1, 1, 1);
+
+        widget_32 = new QWidget(widget_82);
+        widget_32->setObjectName("widget_32");
+        widget_32->setMaximumSize(QSize(500, 16777215));
+        gridLayout_56 = new QGridLayout(widget_32);
+        gridLayout_56->setObjectName("gridLayout_56");
+        LMainMenuLogo = new QLabel(widget_32);
+        LMainMenuLogo->setObjectName("LMainMenuLogo");
+        sizePolicy.setHeightForWidth(LMainMenuLogo->sizePolicy().hasHeightForWidth());
+        LMainMenuLogo->setSizePolicy(sizePolicy);
+        LMainMenuLogo->setMinimumSize(QSize(386, 386));
+        LMainMenuLogo->setMaximumSize(QSize(386, 386));
+
+        gridLayout_56->addWidget(LMainMenuLogo, 0, 0, 1, 1);
+
+
+        gridLayout_57->addWidget(widget_32, 1, 0, 1, 1);
+
+
+        verticalLayout_16->addWidget(widget_82);
+
+        widget_86 = new QWidget(widget_94);
+        widget_86->setObjectName("widget_86");
+        widget_86->setMaximumSize(QSize(16777215, 210));
+        verticalLayout_14 = new QVBoxLayout(widget_86);
+        verticalLayout_14->setSpacing(0);
+        verticalLayout_14->setObjectName("verticalLayout_14");
+        widget_88 = new QWidget(widget_86);
+        widget_88->setObjectName("widget_88");
+        widget_88->setMaximumSize(QSize(500, 80));
+        widget_88->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
+"border-radius:0;\n"
+"border-top-right-radius:70;\n"
+"border-top-left-radius:70;\n"
+"border:none;\n"
+"border-bottom:3px solid black;"));
+        gridLayout_70 = new QGridLayout(widget_88);
+        gridLayout_70->setObjectName("gridLayout_70");
+        LMainMenuDate = new QLabel(widget_88);
+        LMainMenuDate->setObjectName("LMainMenuDate");
+        QFont font6;
+        font6.setPointSize(48);
+        LMainMenuDate->setFont(font6);
+        LMainMenuDate->setStyleSheet(QString::fromUtf8("background:none;\n"
+"color:white;\n"
+"\n"
+"border:none;"));
+        LMainMenuDate->setAlignment(Qt::AlignmentFlag::AlignCenter);
+
+        gridLayout_70->addWidget(LMainMenuDate, 0, 0, 1, 1);
+
+
+        verticalLayout_14->addWidget(widget_88);
+
+        widget_87 = new QWidget(widget_86);
+        widget_87->setObjectName("widget_87");
+        widget_87->setMaximumSize(QSize(16777215, 110));
+        widget_87->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
+"border-radius:0;\n"
+"border-bottom-left-radius:80;\n"
+"border-top-right-radius:40;\n"
+"border-bottom-right-radius:70;"));
+        gridLayout_68 = new QGridLayout(widget_87);
+        gridLayout_68->setObjectName("gridLayout_68");
+        widget_99 = new QWidget(widget_87);
+        widget_99->setObjectName("widget_99");
+        widget_99->setMaximumSize(QSize(503, 16777215));
+        gridLayout_69 = new QGridLayout(widget_99);
+        gridLayout_69->setObjectName("gridLayout_69");
+        LMainMenuTime = new QLabel(widget_99);
+        LMainMenuTime->setObjectName("LMainMenuTime");
+        LMainMenuTime->setMaximumSize(QSize(485, 16777215));
+        QFont font7;
+        font7.setPointSize(60);
+        LMainMenuTime->setFont(font7);
+        LMainMenuTime->setStyleSheet(QString::fromUtf8("background:none;\n"
+"color:white;"));
+        LMainMenuTime->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        LMainMenuTime->setMargin(0);
+
+        gridLayout_69->addWidget(LMainMenuTime, 0, 0, 1, 1);
+
+
+        gridLayout_68->addWidget(widget_99, 0, 0, 1, 1);
+
+        widget_98 = new QWidget(widget_87);
+        widget_98->setObjectName("widget_98");
+        widget_98->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
+"border-radius:0;\n"
+"border-bottom-right-radius:50;\n"
+"border-top-right-radius:40;"));
+        gridLayout_73 = new QGridLayout(widget_98);
+        gridLayout_73->setObjectName("gridLayout_73");
+        gridLayout_73->setContentsMargins(-1, 3, 30, 3);
+        widget_100 = new QWidget(widget_98);
+        widget_100->setObjectName("widget_100");
+        gridLayout_71 = new QGridLayout(widget_100);
+        gridLayout_71->setObjectName("gridLayout_71");
+        gridLayout_71->setContentsMargins(-1, 0, -1, 0);
+        pushButton_2 = new QPushButton(widget_100);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setMinimumSize(QSize(180, 40));
+        pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:20;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #004528;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+
+        gridLayout_71->addWidget(pushButton_2, 0, 0, 1, 1);
+
+        pushButton = new QPushButton(widget_100);
+        pushButton->setObjectName("pushButton");
+        pushButton->setMinimumSize(QSize(0, 40));
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border-radius:20;\n"
+"	background-color:white;\n"
+"	color:black;\n"
+"	border: 7px solid #004528;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"        background-color:#ACACAC;\n"
+"}"));
+
+        gridLayout_71->addWidget(pushButton, 1, 0, 1, 1);
+
+
+        gridLayout_73->addWidget(widget_100, 0, 0, 1, 1, Qt::AlignmentFlag::AlignRight);
+
+
+        gridLayout_68->addWidget(widget_98, 0, 1, 1, 1);
+
+
+        verticalLayout_14->addWidget(widget_87);
+
+
+        verticalLayout_16->addWidget(widget_86);
+
+        verticalLayout_16->setStretch(0, 1);
+        verticalLayout_16->setStretch(1, 2);
+        verticalLayout_16->setStretch(2, 1);
+
+        gridLayout_40->addWidget(widget_94, 0, 0, 1, 1);
+
         SWMenus->addWidget(PMainMenu);
         PPacientList = new QWidget();
         PPacientList->setObjectName("PPacientList");
@@ -1115,9 +1596,9 @@ public:
         LESecondName = new QLineEdit(widget_33);
         LESecondName->setObjectName("LESecondName");
         LESecondName->setMinimumSize(QSize(0, 40));
-        QFont font2;
-        font2.setItalic(false);
-        LESecondName->setFont(font2);
+        QFont font8;
+        font8.setItalic(false);
+        LESecondName->setFont(font8);
         LESecondName->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
 "border-bottom: 2px solid black;"));
 
@@ -1191,12 +1672,12 @@ public:
 
         gridLayout_36->addWidget(widget_20, 1, 0, 1, 1);
 
-        widget_32 = new QWidget(widget_30);
-        widget_32->setObjectName("widget_32");
-        widget_32->setMaximumSize(QSize(700, 60));
-        horizontalLayout_6 = new QHBoxLayout(widget_32);
+        AdminPanel2 = new QWidget(widget_30);
+        AdminPanel2->setObjectName("AdminPanel2");
+        AdminPanel2->setMaximumSize(QSize(700, 60));
+        horizontalLayout_6 = new QHBoxLayout(AdminPanel2);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
-        PBPatietTableAdd = new QPushButton(widget_32);
+        PBPatietTableAdd = new QPushButton(AdminPanel2);
         PBPatietTableAdd->setObjectName("PBPatietTableAdd");
         PBPatietTableAdd->setMinimumSize(QSize(0, 40));
         PBPatietTableAdd->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1213,7 +1694,7 @@ public:
 
         horizontalLayout_6->addWidget(PBPatietTableAdd, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBPatientTableEdit = new QPushButton(widget_32);
+        PBPatientTableEdit = new QPushButton(AdminPanel2);
         PBPatientTableEdit->setObjectName("PBPatientTableEdit");
         PBPatientTableEdit->setEnabled(true);
         PBPatientTableEdit->setMinimumSize(QSize(0, 40));
@@ -1231,7 +1712,7 @@ public:
 
         horizontalLayout_6->addWidget(PBPatientTableEdit, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBPatientTableDelete = new QPushButton(widget_32);
+        PBPatientTableDelete = new QPushButton(AdminPanel2);
         PBPatientTableDelete->setObjectName("PBPatientTableDelete");
         PBPatientTableDelete->setMinimumSize(QSize(0, 40));
         PBPatientTableDelete->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1249,7 +1730,7 @@ public:
         horizontalLayout_6->addWidget(PBPatientTableDelete, 0, Qt::AlignmentFlag::AlignTop);
 
 
-        gridLayout_36->addWidget(widget_32, 2, 0, 1, 1);
+        gridLayout_36->addWidget(AdminPanel2, 2, 0, 1, 1);
 
 
         gridLayout_35->addWidget(widget_30, 0, 0, 1, 1);
@@ -1492,7 +1973,7 @@ public:
         LEServiceName = new QLineEdit(widget_43);
         LEServiceName->setObjectName("LEServiceName");
         LEServiceName->setMinimumSize(QSize(0, 40));
-        LEServiceName->setFont(font2);
+        LEServiceName->setFont(font8);
         LEServiceName->setStyleSheet(QString::fromUtf8("border: 0px solid red;\n"
 "border-bottom: 2px solid black;"));
 
@@ -1570,12 +2051,12 @@ public:
 
         verticalLayout_9->addWidget(widget_42);
 
-        widget_44 = new QWidget(widget_38);
-        widget_44->setObjectName("widget_44");
-        widget_44->setMaximumSize(QSize(16777215, 60));
-        horizontalLayout_7 = new QHBoxLayout(widget_44);
+        AdminPanel3 = new QWidget(widget_38);
+        AdminPanel3->setObjectName("AdminPanel3");
+        AdminPanel3->setMaximumSize(QSize(16777215, 60));
+        horizontalLayout_7 = new QHBoxLayout(AdminPanel3);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
-        PBServiceTableAdd = new QPushButton(widget_44);
+        PBServiceTableAdd = new QPushButton(AdminPanel3);
         PBServiceTableAdd->setObjectName("PBServiceTableAdd");
         PBServiceTableAdd->setMinimumSize(QSize(0, 40));
         PBServiceTableAdd->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1592,7 +2073,7 @@ public:
 
         horizontalLayout_7->addWidget(PBServiceTableAdd, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBServiceTableEdit = new QPushButton(widget_44);
+        PBServiceTableEdit = new QPushButton(AdminPanel3);
         PBServiceTableEdit->setObjectName("PBServiceTableEdit");
         PBServiceTableEdit->setEnabled(true);
         PBServiceTableEdit->setMinimumSize(QSize(0, 40));
@@ -1610,7 +2091,7 @@ public:
 
         horizontalLayout_7->addWidget(PBServiceTableEdit, 0, Qt::AlignmentFlag::AlignTop);
 
-        PBServiceTableDelete = new QPushButton(widget_44);
+        PBServiceTableDelete = new QPushButton(AdminPanel3);
         PBServiceTableDelete->setObjectName("PBServiceTableDelete");
         PBServiceTableDelete->setMinimumSize(QSize(0, 40));
         PBServiceTableDelete->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -1628,7 +2109,7 @@ public:
         horizontalLayout_7->addWidget(PBServiceTableDelete, 0, Qt::AlignmentFlag::AlignTop);
 
 
-        verticalLayout_9->addWidget(widget_44);
+        verticalLayout_9->addWidget(AdminPanel3);
 
 
         gridLayout_37->addWidget(widget_38, 0, 0, 1, 1);
@@ -1921,7 +2402,7 @@ public:
 
         retranslateUi(mainmenuwindow);
 
-        SWMenus->setCurrentIndex(0);
+        SWMenus->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(mainmenuwindow);
@@ -1929,7 +2410,7 @@ public:
 
     void retranslateUi(QDialog *mainmenuwindow)
     {
-        mainmenuwindow->setWindowTitle(QCoreApplication::translate("mainmenuwindow", "Dialog", nullptr));
+        mainmenuwindow->setWindowTitle(QCoreApplication::translate("mainmenuwindow", "\320\241\321\202\320\276\320\274\320\260\321\202\320\276\320\273\320\276\320\263\320\270\321\217", nullptr));
         LMenuName->setText(QCoreApplication::translate("mainmenuwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
         PBAppointment->setText(QCoreApplication::translate("mainmenuwindow", "\320\227\320\260\320\277\320\270\321\201\320\270 \320\275\320\260 \320\277\321\200\320\270\320\265\320\274", nullptr));
         PBMainMenu->setText(QCoreApplication::translate("mainmenuwindow", "\320\223\320\273\320\260\320\262\320\275\320\276\320\265 \320\274\320\265\320\275\321\216", nullptr));
@@ -1949,7 +2430,7 @@ public:
         LAppointmentsMedic->setText(QString());
         label_14->setText(QCoreApplication::translate("mainmenuwindow", "\320\237\320\260\321\206\320\270\320\265\320\275\321\202", nullptr));
         LAppointmentsDuration->setText(QString());
-        label_18->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\273\320\270\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr));
+        label_18->setText(QCoreApplication::translate("mainmenuwindow", "\320\237\321\200\320\270\321\207\320\270\320\275\320\260", nullptr));
         label_17->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\260\321\202\320\260", nullptr));
         LAppointmentsDate->setText(QString());
         LAppointmentsService->setText(QString());
@@ -1957,6 +2438,23 @@ public:
         PBAppointmentAdd->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
         PBAppointmentEdit->setText(QCoreApplication::translate("mainmenuwindow", "\320\240\320\265\320\264\320\260\320\272\321\202\320\270\321\200\320\276\320\262\320\260\321\202\321\214", nullptr));
         PBAppointmentDelete->setText(QCoreApplication::translate("mainmenuwindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
+        LMainMenuDayGreeting->setText(QString());
+        LMainMenuSunrisePic->setText(QString());
+        LMainMenuDayPic->setText(QString());
+        LMainMenuSunsetPic->setText(QString());
+        LMainMenuNightPic->setText(QString());
+        label->setText(QCoreApplication::translate("mainmenuwindow", "\320\230\320\275\321\204\320\276\321\200\320\274\320\260\321\206\320\270\321\217 \320\276 \320\262\320\260\321\210\320\265\320\274 \320\260\320\272\320\272\320\260\321\203\320\275\321\202\320\265", nullptr));
+        label_3->setText(QCoreApplication::translate("mainmenuwindow", "\320\244\320\230\320\236", nullptr));
+        label_4->setText(QCoreApplication::translate("mainmenuwindow", "\320\230\320\274\321\217 \320\260\320\272\320\272\320\260\321\203\320\275\321\202\320\260", nullptr));
+        label_5->setText(QCoreApplication::translate("mainmenuwindow", "\320\224\320\276\321\201\321\202\321\203\320\277", nullptr));
+        LMainMenuInfoFullName->setText(QString());
+        LMainMenuInfoAccount->setText(QString());
+        LMainMenuInfoPermission->setText(QString());
+        LMainMenuLogo->setText(QString());
+        LMainMenuDate->setText(QString());
+        LMainMenuTime->setText(QString());
+        pushButton_2->setText(QCoreApplication::translate("mainmenuwindow", "PushButton", nullptr));
+        pushButton->setText(QCoreApplication::translate("mainmenuwindow", "PushButton", nullptr));
         LESecondName->setPlaceholderText(QCoreApplication::translate("mainmenuwindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\204\320\260\320\274\320\270\320\273\320\270\321\216", nullptr));
         PBFindPatient->setText(QCoreApplication::translate("mainmenuwindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
         LLens->setText(QString());

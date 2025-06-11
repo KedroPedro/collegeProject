@@ -384,7 +384,7 @@ public:
 
     void retranslateUi(QDialog *Settings)
     {
-        Settings->setWindowTitle(QCoreApplication::translate("Settings", "Dialog", nullptr));
+        Settings->setWindowTitle(QCoreApplication::translate("Settings", "\320\235\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270 \320\277\320\276\320\264\320\272\320\273\321\216\321\207\320\265\320\275\320\270\321\217", nullptr));
         label_5->setText(QCoreApplication::translate("Settings", "Host", nullptr));
         label_4->setText(QCoreApplication::translate("Settings", "\320\233\320\276\320\263\320\270\320\275", nullptr));
         label_3->setText(QCoreApplication::translate("Settings", "\320\237\320\260\321\200\320\276\320\273\321\214", nullptr));

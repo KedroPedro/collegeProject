@@ -303,7 +303,6 @@ public:
 
         CBStatus = new QComboBox(widget_3);
         CBStatus->addItem(QString());
-        CBStatus->addItem(QString());
         CBStatus->setObjectName("CBStatus");
         CBStatus->setMinimumSize(QSize(0, 60));
         CBStatus->setMaximumSize(QSize(16777215, 40));
@@ -451,7 +450,7 @@ public:
 
     void retranslateUi(QDialog *AddAppointmentWindow)
     {
-        AddAppointmentWindow->setWindowTitle(QCoreApplication::translate("AddAppointmentWindow", "Dialog", nullptr));
+        AddAppointmentWindow->setWindowTitle(QCoreApplication::translate("AddAppointmentWindow", "\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 \320\267\320\260\320\277\320\270\321\201\320\270", nullptr));
         label_7->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\200\320\260\321\207", nullptr));
         label_6->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\320\260\321\206\320\270\320\265\320\275\321\202", nullptr));
         label_13->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\321\200\320\276\321\206\320\265\320\264\321\203\321\200\320\260", nullptr));
@@ -459,7 +458,6 @@ public:
         label_12->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\237\321\200\320\270\321\207\320\270\320\275\320\260", nullptr));
         label_11->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
         CBStatus->setItemText(0, QCoreApplication::translate("AddAppointmentWindow", "\320\222 \320\276\320\266\320\270\320\264\320\260\320\275\320\270\320\270", nullptr));
-        CBStatus->setItemText(1, QCoreApplication::translate("AddAppointmentWindow", "\320\236\321\202\320\274\320\265\320\275\320\265\320\275\320\276", nullptr));
 
         LPatientFullName->setText(QString());
         PBSelectPatient->setText(QCoreApplication::translate("AddAppointmentWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));

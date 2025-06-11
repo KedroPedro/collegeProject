@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Стоматология</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Изображения/whitewindowlogo.png</normaloff>../../../Изображения/whitewindowlogo.png</iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LayoutDirection::LeftToRight</enum>
@@ -674,7 +678,7 @@ border-bottom-right-radius:30
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="PAppointment">
        <property name="styleSheet">
@@ -1123,7 +1127,7 @@ border-top-left-radius:30;</string>
                              <string notr="true">color:white;</string>
                             </property>
                             <property name="text">
-                             <string>Длительность</string>
+                             <string>Причина</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1360,7 +1364,7 @@ QTableView::item:selected {
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QWidget" name="widget_80" native="true">
+               <widget class="QWidget" name="AdminPanel1" native="true">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -1488,6 +1492,730 @@ QPushButton:hover{
 border-bottom-right-radius:30
 </string>
        </property>
+       <layout class="QGridLayout" name="gridLayout_40">
+        <item row="0" column="0">
+         <widget class="QWidget" name="widget_94" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_16" stretch="1,2,1">
+           <item>
+            <widget class="QWidget" name="widget_83" native="true">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>210</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="widget_84" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>110</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#3E7C59;
+border-radius:0;
+border-top-left-radius:80;
+border-top-right-radius:40;
+border-bottom-right-radius:70;</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_72">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="LMainMenuDayGreeting">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>36</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background:none;
+color:white;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                   </property>
+                   <property name="margin">
+                    <number>0</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_85" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>500</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#3E7C59;
+border-radius:0;
+border-bottom-right-radius:70;
+border-bottom-left-radius:70;</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_10">
+                 <item>
+                  <widget class="QLabel" name="LMainMenuSunrisePic">
+                   <property name="minimumSize">
+                    <size>
+                     <width>48</width>
+                     <height>48</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="LMainMenuDayPic">
+                   <property name="minimumSize">
+                    <size>
+                     <width>48</width>
+                     <height>48</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="LMainMenuSunsetPic">
+                   <property name="minimumSize">
+                    <size>
+                     <width>48</width>
+                     <height>48</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="LMainMenuNightPic">
+                   <property name="minimumSize">
+                    <size>
+                     <width>48</width>
+                     <height>48</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>19</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_82" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>400</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_57">
+              <item row="1" column="1">
+               <widget class="QWidget" name="widget_44" native="true">
+                <layout class="QGridLayout" name="gridLayout_58">
+                 <item row="0" column="0">
+                  <widget class="QWidget" name="widget_80" native="true">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>600</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>900</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border-radius:70;
+background-color:#3E7C59;</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_15" stretch="1,3">
+                    <item>
+                     <widget class="QWidget" name="widget_92" native="true">
+                      <property name="styleSheet">
+                       <string notr="true">border-radius:45</string>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_64">
+                       <item row="0" column="0">
+                        <widget class="QWidget" name="widget_81" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_59">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label">
+                            <property name="font">
+                             <font>
+                              <pointsize>15</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string>Информация о вашем аккаунте</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="widget_93" native="true">
+                      <layout class="QGridLayout" name="gridLayout_65" columnstretch="1,2">
+                       <item row="0" column="0">
+                        <widget class="QWidget" name="widget_89" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>150</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_67">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_3">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string>ФИО</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QWidget" name="widget_90" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_61">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_4">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string>Имя аккаунта</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QWidget" name="widget_91" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_62">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="label_5">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string>Доступ</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="0" column="1">
+                        <widget class="QWidget" name="widget_95" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_60">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="LMainMenuInfoFullName">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QWidget" name="widget_96" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_63">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="LMainMenuInfoAccount">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="2" column="1">
+                        <widget class="QWidget" name="widget_97" native="true">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background:#4C5958;
+border-radius:30</string>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_66">
+                          <item row="0" column="0">
+                           <widget class="QLabel" name="LMainMenuInfoPermission">
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="layoutDirection">
+                             <enum>Qt::LayoutDirection::LeftToRight</enum>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QWidget" name="widget_32" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>500</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_56" rowstretch="0" columnstretch="0">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="LMainMenuLogo">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>386</width>
+                     <height>386</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>386</width>
+                     <height>386</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_86" native="true">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>210</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QWidget" name="widget_88" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>500</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#3E7C59;
+border-radius:0;
+border-top-right-radius:70;
+border-top-left-radius:70;
+border:none;
+border-bottom:3px solid black;</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_70">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="LMainMenuDate">
+                   <property name="font">
+                    <font>
+                     <pointsize>48</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background:none;
+color:white;
+
+border:none;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_87" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>110</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#3E7C59;
+border-radius:0;
+border-bottom-left-radius:80;
+border-top-right-radius:40;
+border-bottom-right-radius:70;</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_68">
+                 <item row="0" column="0">
+                  <widget class="QWidget" name="widget_99" native="true">
+                   <property name="maximumSize">
+                    <size>
+                     <width>503</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_69">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="LMainMenuTime">
+                      <property name="maximumSize">
+                       <size>
+                        <width>485</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>60</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background:none;
+color:white;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignmentFlag::AlignCenter</set>
+                      </property>
+                      <property name="margin">
+                       <number>0</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QWidget" name="widget_98" native="true">
+                   <property name="styleSheet">
+                    <string notr="true">background-color:#3E7C59;
+border-radius:0;
+border-bottom-right-radius:50;
+border-top-right-radius:40;</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_73">
+                    <property name="topMargin">
+                     <number>3</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>30</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>3</number>
+                    </property>
+                    <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignRight">
+                     <widget class="QWidget" name="widget_100" native="true">
+                      <layout class="QGridLayout" name="gridLayout_71">
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item row="0" column="0">
+                        <widget class="QPushButton" name="pushButton_2">
+                         <property name="minimumSize">
+                          <size>
+                           <width>180</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>PushButton</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QPushButton" name="pushButton">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>PushButton</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="PPacientList">
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -1712,7 +2440,7 @@ QTableView::item {
                </widget>
               </item>
               <item row="2" column="0">
-               <widget class="QWidget" name="widget_32" native="true">
+               <widget class="QWidget" name="AdminPanel2" native="true">
                 <property name="maximumSize">
                  <size>
                   <width>700</width>
@@ -2395,7 +3123,7 @@ QTableView::item {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_44" native="true">
+               <widget class="QWidget" name="AdminPanel3" native="true">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>

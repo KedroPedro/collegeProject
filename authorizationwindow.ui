@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AuthorizationWindow</string>
+   <string>Вход и регистрация</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Изображения/whitewindowlogo.ico</normaloff>../../../Изображения/whitewindowlogo.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:white</string>

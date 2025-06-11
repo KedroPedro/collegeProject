@@ -396,7 +396,7 @@ public:
 
     void retranslateUi(QDialog *editpatientwindow)
     {
-        editpatientwindow->setWindowTitle(QCoreApplication::translate("editpatientwindow", "Dialog", nullptr));
+        editpatientwindow->setWindowTitle(QCoreApplication::translate("editpatientwindow", "\320\230\320\267\320\274\320\265\320\275\320\265\320\275\320\270\320\265 \320\277\321\200\320\276\321\204\320\270\320\273\321\217 \320\277\320\260\321\206\320\270\320\265\320\275\321\202\320\260", nullptr));
         label_2->setText(QCoreApplication::translate("editpatientwindow", "\320\220\320\264\321\200\320\265\321\201", nullptr));
         label_3->setText(QCoreApplication::translate("editpatientwindow", "\320\224\320\260\321\202\320\260 \321\200\320\276\320\266\320\264\320\265\320\275\320\270\321\217", nullptr));
         LEPhoneNumber->setInputMask(QCoreApplication::translate("editpatientwindow", "+375 (99) 999 99 99", nullptr));

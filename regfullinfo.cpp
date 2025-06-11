@@ -54,6 +54,18 @@ void RegFullInfo::NormalUserRegistration(){
 
 bool RegFullInfo::AdminRegistration(){
     RegAdminConfirm window;
+
+    QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
+    query.prepare("select * from "+Database().getDbName()+".users where userpermission = :up");
+    query.bindValue(":up","Администратор");
+    query.exec();
+
+    if(!query.next()){
+        AddUser();
+        return true;
+    }
+
+
     window.setModal(true);
     window.exec();
 
