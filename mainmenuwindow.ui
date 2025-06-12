@@ -1567,7 +1567,9 @@ color:white;</string>
                  <string notr="true">background-color:#3E7C59;
 border-radius:0;
 border-bottom-right-radius:70;
-border-bottom-left-radius:70;</string>
+border-bottom-left-radius:70;
+border:none;
+border-top:3px solid black;</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                  <item>
@@ -1583,6 +1585,9 @@ border-bottom-left-radius:70;</string>
                      <width>60</width>
                      <height>60</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:none;</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1603,6 +1608,9 @@ border-bottom-left-radius:70;</string>
                      <height>60</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:none;</string>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -1621,6 +1629,9 @@ border-bottom-left-radius:70;</string>
                      <width>60</width>
                      <height>60</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:none;</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1645,6 +1656,9 @@ border-bottom-left-radius:70;</string>
                     <font>
                      <pointsize>19</pointsize>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:none;</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -2151,7 +2165,7 @@ border-top-right-radius:40;</string>
                         <number>0</number>
                        </property>
                        <item row="0" column="0">
-                        <widget class="QPushButton" name="pushButton_2">
+                        <widget class="QPushButton" name="PBMainMenuReports">
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -2171,12 +2185,12 @@ QPushButton:hover{
 }</string>
                          </property>
                          <property name="text">
-                          <string>PushButton</string>
+                          <string>Отчеты</string>
                          </property>
                         </widget>
                        </item>
                        <item row="1" column="0">
-                        <widget class="QPushButton" name="pushButton">
+                        <widget class="QPushButton" name="PBMainMenuUsers">
                          <property name="minimumSize">
                           <size>
                            <width>0</width>
@@ -2196,7 +2210,7 @@ QPushButton:hover{
 }</string>
                          </property>
                          <property name="text">
-                          <string>PushButton</string>
+                          <string>Пользователи</string>
                          </property>
                         </widget>
                        </item>

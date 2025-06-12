@@ -66,7 +66,8 @@ static constexpr auto qt_meta_stringdata_ZN14mainmenuwindowE = QtMocHelpers::str
     "on_TVAppointments_doubleClicked",
     "on_PBAppointmentAdd_clicked",
     "on_PBAppointmentEdit_clicked",
-    "on_PBAppointmentDelete_clicked"
+    "on_PBAppointmentDelete_clicked",
+    "on_PBMainMenuUsers_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -78,7 +79,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -86,29 +87,30 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  152,    2, 0x0a,    1 /* Public */,
-       5,    0,  155,    2, 0x08,    3 /* Private */,
-       6,    0,  156,    2, 0x08,    4 /* Private */,
-       7,    0,  157,    2, 0x08,    5 /* Private */,
-       8,    0,  158,    2, 0x08,    6 /* Private */,
-       9,    1,  159,    2, 0x08,    7 /* Private */,
-      12,    0,  162,    2, 0x08,    9 /* Private */,
-      13,    0,  163,    2, 0x08,   10 /* Private */,
-      14,    0,  164,    2, 0x08,   11 /* Private */,
-      15,    0,  165,    2, 0x08,   12 /* Private */,
-      16,    0,  166,    2, 0x08,   13 /* Private */,
-      17,    0,  167,    2, 0x08,   14 /* Private */,
-      18,    0,  168,    2, 0x08,   15 /* Private */,
-      19,    0,  169,    2, 0x08,   16 /* Private */,
-      20,    0,  170,    2, 0x08,   17 /* Private */,
-      21,    0,  171,    2, 0x08,   18 /* Private */,
-      22,    1,  172,    2, 0x08,   19 /* Private */,
-      23,    0,  175,    2, 0x08,   21 /* Private */,
-      24,    1,  176,    2, 0x08,   22 /* Private */,
-      26,    1,  179,    2, 0x08,   24 /* Private */,
-      27,    0,  182,    2, 0x08,   26 /* Private */,
-      28,    0,  183,    2, 0x08,   27 /* Private */,
-      29,    0,  184,    2, 0x08,   28 /* Private */,
+       1,    1,  158,    2, 0x0a,    1 /* Public */,
+       5,    0,  161,    2, 0x08,    3 /* Private */,
+       6,    0,  162,    2, 0x08,    4 /* Private */,
+       7,    0,  163,    2, 0x08,    5 /* Private */,
+       8,    0,  164,    2, 0x08,    6 /* Private */,
+       9,    1,  165,    2, 0x08,    7 /* Private */,
+      12,    0,  168,    2, 0x08,    9 /* Private */,
+      13,    0,  169,    2, 0x08,   10 /* Private */,
+      14,    0,  170,    2, 0x08,   11 /* Private */,
+      15,    0,  171,    2, 0x08,   12 /* Private */,
+      16,    0,  172,    2, 0x08,   13 /* Private */,
+      17,    0,  173,    2, 0x08,   14 /* Private */,
+      18,    0,  174,    2, 0x08,   15 /* Private */,
+      19,    0,  175,    2, 0x08,   16 /* Private */,
+      20,    0,  176,    2, 0x08,   17 /* Private */,
+      21,    0,  177,    2, 0x08,   18 /* Private */,
+      22,    1,  178,    2, 0x08,   19 /* Private */,
+      23,    0,  181,    2, 0x08,   21 /* Private */,
+      24,    1,  182,    2, 0x08,   22 /* Private */,
+      26,    1,  185,    2, 0x08,   24 /* Private */,
+      27,    0,  188,    2, 0x08,   26 /* Private */,
+      28,    0,  189,    2, 0x08,   27 /* Private */,
+      29,    0,  190,    2, 0x08,   28 /* Private */,
+      30,    0,  191,    2, 0x08,   29 /* Private */,
 
  // slots: parameters
     QMetaType::Int, 0x80000000 | 3,    4,
@@ -131,6 +133,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN14mainmenuwindowE[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QDate,   25,
     QMetaType::Void, 0x80000000 | 10,   11,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -197,6 +200,8 @@ Q_CONSTINIT const QMetaObject mainmenuwindow::staticMetaObject = { {
         // method 'on_PBAppointmentEdit_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_PBAppointmentDelete_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_PBMainMenuUsers_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -232,6 +237,7 @@ void mainmenuwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 20: _t->on_PBAppointmentAdd_clicked(); break;
         case 21: _t->on_PBAppointmentEdit_clicked(); break;
         case 22: _t->on_PBAppointmentDelete_clicked(); break;
+        case 23: _t->on_PBMainMenuUsers_clicked(); break;
         default: ;
         }
     }
@@ -268,14 +274,14 @@ int mainmenuwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     }
     return _id;
 }

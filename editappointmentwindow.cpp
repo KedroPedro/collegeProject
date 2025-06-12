@@ -21,7 +21,7 @@ EditAppointmentWindow::EditAppointmentWindow(int appointId,QWidget *parent)
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
     query.prepare("select userfullname from "+ db +".users");
     query.exec();
-    query.next();
+
 
 
     while (query.next()) {
@@ -32,7 +32,7 @@ EditAppointmentWindow::EditAppointmentWindow(int appointId,QWidget *parent)
 
     query.prepare("select servicename from "+ db +".services");
     query.exec();
-    query.next();
+
 
     while (query.next()) {
         if (!query.value(0).isNull()) {

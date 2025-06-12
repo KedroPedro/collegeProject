@@ -19,7 +19,7 @@ AddAppointmentWindow::AddAppointmentWindow(QWidget *parent)
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
     query.prepare("select userfullname from "+ Database().getDbName() +".users");
     query.exec();
-    query.next();
+
 
     int ind = 0;
     while (query.next()) {

@@ -59,9 +59,6 @@ QString PasswordHasher::getPermissionType(QString login){
     query.exec();
     query.next();
 
-    if(query.value(0).isNull()){
-        return "None";
-    }
 
     return query.value(0).toString();
 }

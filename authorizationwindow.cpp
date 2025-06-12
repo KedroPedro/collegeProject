@@ -125,9 +125,7 @@ void AuthorizationWindow::on_PBRegisterReg_clicked()
     }
     window.deleteLater();
     QMessageBox::information(this,"Успех","Ваш аккаунт успешно зарегистрирован");
-    ui->LEPasswordReg->setText("");
-    ui->LEPasswordRegAgain->setText("");
-    ui->LEUserReg->setText("");
+
     return;
 }
 

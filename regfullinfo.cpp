@@ -68,8 +68,8 @@ bool RegFullInfo::AdminRegistration(){
 
     window.setModal(true);
     window.exec();
-
-    if(!window.getStatus()){
+    registrationStatus = window.getStatus();
+    if(!registrationStatus){
         QMessageBox::warning(this,"Ошибка","Не удалось подтвердить регистрацию");
         return false;
     }
@@ -91,6 +91,7 @@ void RegFullInfo::on_PBRegFullInfoReg_clicked()
         break;
     case 1:
         if(!AdminRegistration()){
+            registrationStatus = false;
             return;
         }
         break;
@@ -98,7 +99,6 @@ void RegFullInfo::on_PBRegFullInfoReg_clicked()
         QMessageBox::warning(this,"Ошибка","Выберите уровень доступа");
         return;
     }
-    registrationStatus = true;
     this->close();
 
     return;
@@ -108,8 +108,6 @@ void RegFullInfo::on_PBRegFullInfoReg_clicked()
 void RegFullInfo::on_PBCancel_clicked()
 {
     this->close();
-
-    return;
 }
 
 bool RegFullInfo::GetRegistrationStatus(){

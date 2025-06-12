@@ -199,8 +199,8 @@ public:
     QGridLayout *gridLayout_73;
     QWidget *widget_100;
     QGridLayout *gridLayout_71;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
+    QPushButton *PBMainMenuReports;
+    QPushButton *PBMainMenuUsers;
     QWidget *PPacientList;
     QVBoxLayout *verticalLayout;
     QWidget *widget_18;
@@ -1185,13 +1185,16 @@ public:
         widget_85->setStyleSheet(QString::fromUtf8("background-color:#3E7C59;\n"
 "border-radius:0;\n"
 "border-bottom-right-radius:70;\n"
-"border-bottom-left-radius:70;"));
+"border-bottom-left-radius:70;\n"
+"border:none;\n"
+"border-top:3px solid black;"));
         horizontalLayout_10 = new QHBoxLayout(widget_85);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         LMainMenuSunrisePic = new QLabel(widget_85);
         LMainMenuSunrisePic->setObjectName("LMainMenuSunrisePic");
         LMainMenuSunrisePic->setMinimumSize(QSize(48, 48));
         LMainMenuSunrisePic->setMaximumSize(QSize(60, 60));
+        LMainMenuSunrisePic->setStyleSheet(QString::fromUtf8("border:none;"));
 
         horizontalLayout_10->addWidget(LMainMenuSunrisePic);
 
@@ -1199,6 +1202,7 @@ public:
         LMainMenuDayPic->setObjectName("LMainMenuDayPic");
         LMainMenuDayPic->setMinimumSize(QSize(48, 48));
         LMainMenuDayPic->setMaximumSize(QSize(60, 60));
+        LMainMenuDayPic->setStyleSheet(QString::fromUtf8("border:none;"));
 
         horizontalLayout_10->addWidget(LMainMenuDayPic);
 
@@ -1206,6 +1210,7 @@ public:
         LMainMenuSunsetPic->setObjectName("LMainMenuSunsetPic");
         LMainMenuSunsetPic->setMinimumSize(QSize(48, 48));
         LMainMenuSunsetPic->setMaximumSize(QSize(60, 60));
+        LMainMenuSunsetPic->setStyleSheet(QString::fromUtf8("border:none;"));
 
         horizontalLayout_10->addWidget(LMainMenuSunsetPic);
 
@@ -1216,6 +1221,7 @@ public:
         QFont font3;
         font3.setPointSize(19);
         LMainMenuNightPic->setFont(font3);
+        LMainMenuNightPic->setStyleSheet(QString::fromUtf8("border:none;"));
 
         horizontalLayout_10->addWidget(LMainMenuNightPic);
 
@@ -1504,10 +1510,10 @@ public:
         gridLayout_71 = new QGridLayout(widget_100);
         gridLayout_71->setObjectName("gridLayout_71");
         gridLayout_71->setContentsMargins(-1, 0, -1, 0);
-        pushButton_2 = new QPushButton(widget_100);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMinimumSize(QSize(180, 40));
-        pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        PBMainMenuReports = new QPushButton(widget_100);
+        PBMainMenuReports->setObjectName("PBMainMenuReports");
+        PBMainMenuReports->setMinimumSize(QSize(180, 40));
+        PBMainMenuReports->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	border-radius:20;\n"
 "	background-color:white;\n"
 "	color:black;\n"
@@ -1518,12 +1524,12 @@ public:
 "        background-color:#ACACAC;\n"
 "}"));
 
-        gridLayout_71->addWidget(pushButton_2, 0, 0, 1, 1);
+        gridLayout_71->addWidget(PBMainMenuReports, 0, 0, 1, 1);
 
-        pushButton = new QPushButton(widget_100);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(0, 40));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        PBMainMenuUsers = new QPushButton(widget_100);
+        PBMainMenuUsers->setObjectName("PBMainMenuUsers");
+        PBMainMenuUsers->setMinimumSize(QSize(0, 40));
+        PBMainMenuUsers->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	border-radius:20;\n"
 "	background-color:white;\n"
 "	color:black;\n"
@@ -1534,7 +1540,7 @@ public:
 "        background-color:#ACACAC;\n"
 "}"));
 
-        gridLayout_71->addWidget(pushButton, 1, 0, 1, 1);
+        gridLayout_71->addWidget(PBMainMenuUsers, 1, 0, 1, 1);
 
 
         gridLayout_73->addWidget(widget_100, 0, 0, 1, 1, Qt::AlignmentFlag::AlignRight);
@@ -2453,8 +2459,8 @@ public:
         LMainMenuLogo->setText(QString());
         LMainMenuDate->setText(QString());
         LMainMenuTime->setText(QString());
-        pushButton_2->setText(QCoreApplication::translate("mainmenuwindow", "PushButton", nullptr));
-        pushButton->setText(QCoreApplication::translate("mainmenuwindow", "PushButton", nullptr));
+        PBMainMenuReports->setText(QCoreApplication::translate("mainmenuwindow", "\320\236\321\202\321\207\320\265\321\202\321\213", nullptr));
+        PBMainMenuUsers->setText(QCoreApplication::translate("mainmenuwindow", "\320\237\320\276\320\273\321\214\320\267\320\276\320\262\320\260\321\202\320\265\320\273\320\270", nullptr));
         LESecondName->setPlaceholderText(QCoreApplication::translate("mainmenuwindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\204\320\260\320\274\320\270\320\273\320\270\321\216", nullptr));
         PBFindPatient->setText(QCoreApplication::translate("mainmenuwindow", "\320\235\320\260\320\271\321\202\320\270", nullptr));
         LLens->setText(QString());

@@ -73,7 +73,10 @@ private slots:
 
     void on_PBAppointmentDelete_clicked();
 
+    void on_PBMainMenuUsers_clicked();
+
 private:
+    QString currentUser;
     Ui::mainmenuwindow *ui;
     QTimer* clockTimer;
 };

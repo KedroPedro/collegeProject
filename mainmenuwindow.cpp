@@ -9,6 +9,8 @@
 #include "editservicewindow.h"
 #include "addappointmentwindow.h"
 #include "editappointmentwindow.h"
+#include "usertablewindow.h"
+#include "passwordhasher.h"
 
 #include <QSqlError>
 #include <QTableView>
@@ -37,11 +39,11 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
     Picture(ui->LClock,"pictures/blackClock.png");
     Picture(ui->LLens,"picture/blackLens.png");
 
-    QString userLogin = parent->findChild<QLineEdit*>("LEUserLogin")->text();
+    currentUser = parent->findChild<QLineEdit*>("LEUserLogin")->text();
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
     query.prepare("select userfullname,userpermission"
                   " from "+Database().getDbName()+".users where username = :username");
-    query.bindValue(":username",userLogin);
+    query.bindValue(":username",currentUser);
     query.exec();
     query.next();
 
@@ -60,7 +62,7 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
         picturePath = "pictures/administrator.png";
     }
 
-    ui->LProfileUsername->setText(userLogin);
+    ui->LProfileUsername->setText(currentUser);
     ui->LProfileName->setText(query.value(0).toString());
     ui->LProfilePermission->setText(query.value(1).toString());
     Picture(ui->LProfilePicture,picturePath,200);
@@ -153,7 +155,7 @@ void mainmenuwindow::on_PBFindPatient_clicked()
     QStringList headers = {"Номер","Имя","Фамилия","Отчество"};
     DataTable(ui->TVPatients,"id,patientname,patientsurname,patientpatronymic"
               ,Database().getDbName()+".patients where patientsurname = '"+surname+"'",headers);
-    ui->TVPatients->show();
+
 }
 
 
@@ -532,26 +534,27 @@ QString mainmenuwindow::getTimeOfDayGreeting(){
     QTime currentTime = QTime::currentTime();
     if (currentTime >= QTime(5, 0) && currentTime < QTime(12, 0)) {
         Picture(ui->LMainMenuSunrisePic,"pictures/sunriseicon.png");
-        return "Доброе утро.";
+        return "Доброе утро";
     }
     else if (currentTime >= QTime(12, 0) && currentTime < QTime(18, 0)) {
         Picture(ui->LMainMenuDayPic,"pictures/dayicon.png");
-        return "Добрый день.";
+        return "Добрый день";
     }
     else if (currentTime >= QTime(18, 0) && currentTime < QTime(23, 0)) {
         Picture(ui->LMainMenuSunsetPic,"pictures/sunseticon.png");
-        return "Добрый вечер.";
+        return "Добрый вечер";
     }
     else {
         Picture(ui->LMainMenuNightPic,"pictures/nighticon.png");
-        return "Доброй ночи.";
+        return "Доброй ночи";
     }
-
-
 }
 
-void mainmenuwindow::on_pushButton_clicked()
+void mainmenuwindow::on_PBMainMenuUsers_clicked()
 {
-
+    UserTableWindow window(currentUser,this);
+    window.setModal(true);
+    window.exec();
+    window.deleteLater();
 }
 

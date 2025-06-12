@@ -1,11 +1,14 @@
 #include "regadminconfirm.h"
 #include "ui_regadminconfirm.h"
 #include "passwordhasher.h"
+#include "database.h"
 
 #include <QString>
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 #include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlDatabase>
 
 RegAdminConfirm::RegAdminConfirm(QWidget *parent)
     : QDialog(parent)
@@ -41,6 +44,17 @@ void RegAdminConfirm::on_PBConfirm_clicked()
         return;
     }
 
+    if(!PasswordHasher::authorizeUser(login,password)){
+        confirmed = false;
+        this->close();
+        return;
+    }
+
+    if(PasswordHasher::getPermissionType(login) != "Администратор"){
+        confirmed = false;
+        this->close();
+        return;
+    }
     confirmed = true;
     this->close();
 }

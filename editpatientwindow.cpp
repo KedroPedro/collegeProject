@@ -1,4 +1,4 @@
-#include "editpatientwindow.h"
+    #include "editpatientwindow.h"
 #include "ui_editpatientwindow.h"
 #include "mainmenuwindow.h"
 #include <QSqlQuery>

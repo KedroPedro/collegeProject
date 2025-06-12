@@ -14,6 +14,7 @@ SOURCES += \
     addservicewindow.cpp \
     database.cpp \
     datatable.cpp \
+    droppasswordwindow.cpp \
     editappointmentwindow.cpp \
     editpatientwindow.cpp \
     editservicewindow.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
     picture.cpp \
     regadminconfirm.cpp \
     regfullinfo.cpp \
+    reportwindow.cpp \
     settings.cpp \
     usertablewindow.cpp
 
@@ -35,6 +37,7 @@ HEADERS += \
     authorizationwindow.h \
     database.h \
     datatable.h \
+    droppasswordwindow.h \
     editappointmentwindow.h \
     editpatientwindow.h \
     editservicewindow.h \
@@ -44,6 +47,7 @@ HEADERS += \
     picture.h \
     regadminconfirm.h \
     regfullinfo.h \
+    reportwindow.h \
     settings.h \
     usertablewindow.h
 
@@ -53,6 +57,7 @@ FORMS += \
     addpatientwindow.ui \
     addservicewindow.ui \
     authorizationwindow.ui \
+    droppasswordwindow.ui \
     editappointmentwindow.ui \
     editpatientwindow.ui \
     editservicewindow.ui \
@@ -60,6 +65,7 @@ FORMS += \
     patienttablewindow.ui \
     regadminconfirm.ui \
     regfullinfo.ui \
+    reportwindow.ui \
     settings.ui \
     usertablewindow.ui
 
