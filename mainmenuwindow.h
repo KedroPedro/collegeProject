@@ -75,6 +75,8 @@ private slots:
 
     void on_PBMainMenuUsers_clicked();
 
+    void on_PBMainMenuReports_clicked();
+
 private:
     QString currentUser;
     Ui::mainmenuwindow *ui;

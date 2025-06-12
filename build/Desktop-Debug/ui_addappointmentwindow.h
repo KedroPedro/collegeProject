@@ -133,6 +133,7 @@ public:
 "	color:black;\n"
 ""));
         CBUsers->setEditable(false);
+        CBUsers->setInsertPolicy(QComboBox::InsertPolicy::InsertAtBottom);
         CBUsers->setSizeAdjustPolicy(QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
 
         gridLayout_3->addWidget(CBUsers, 0, 1, 1, 1, Qt::AlignmentFlag::AlignTop);

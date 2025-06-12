@@ -6,13 +6,287 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>352</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#3B8C6E;
+border-radius:0;
+border-bottom-right-radius:30;
+border-bottom-left-radius:30;</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="styleSheet">
+      <string notr="true">background:white;</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QFrame" name="frame">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QWidget" name="widget_8" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-bottom-right-radius:30;
+border-bottom-left-radius:30;
+
+border:7px solid #3E7C59;
+border-top:none;</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <property name="topMargin">
+             <number>1</number>
+            </property>
+            <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignTop">
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border:none;
+color:black;
+background:none;</string>
+              </property>
+              <property name="text">
+               <string>Регистрация</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QWidget" name="widget_2" native="true">
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="3" column="0">
+          <widget class="QPushButton" name="PBPayments">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:black;</string>
+           </property>
+           <property name="text">
+            <string>Оплаты</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="PBVisits">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	border-radius:20;
+	background-color:white;
+	color:black;
+	border: 7px solid #004528;
+}
+
+QPushButton:hover{
+        background-color:#ACACAC;
+}</string>
+           </property>
+           <property name="text">
+            <string>Посещения</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QSpinBox" name="spinBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::RightToLeft</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+	border-radius:0;
+    text-align: center;
+	background:white;
+	border:7px solid #4C5958;
+	border-bottom-right-radius:30;
+	border-top-right-radius:30;
+	color:black;
+</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+           <property name="minimum">
+            <number>2024</number>
+           </property>
+           <property name="maximum">
+            <number>2055</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QComboBox" name="comboBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::RightToLeft</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+	border-radius:0;
+    text-align: center;
+	background:white;
+	border:7px solid #4C5958;
+	border-bottom-right-radius:30;
+	border-top-right-radius:30;
+	color:black;
+</string>
+           </property>
+           <property name="currentIndex">
+            <number>-1</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>Январь</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Февраль</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Март</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Арель</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Май</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Июнь</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Июль</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Август</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Сентябрь</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Октябрь</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ноябрь</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Декабрь</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

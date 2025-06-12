@@ -15,6 +15,11 @@ public:
     explicit ReportWindow(QWidget *parent = nullptr);
     ~ReportWindow();
 
+private slots:
+    void on_PBVisits_clicked();
+
+    void on_PBPayments_clicked();
+
 private:
     Ui::ReportWindow *ui;
 };

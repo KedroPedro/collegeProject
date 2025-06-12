@@ -11,6 +11,7 @@
 #include "editappointmentwindow.h"
 #include "usertablewindow.h"
 #include "passwordhasher.h"
+#include "reportwindow.h"
 
 #include <QSqlError>
 #include <QTableView>
@@ -58,6 +59,8 @@ mainmenuwindow::mainmenuwindow(QWidget *parent)
         ui->AdminPanel2->setVisible(false);
         ui->AdminPanel3->setEnabled(false);
         ui->AdminPanel3->setVisible(false);
+        ui->MainMenuAdminPanel->setEnabled(false);
+        ui->MainMenuAdminPanel->setVisible(false);
     }else{
         picturePath = "pictures/administrator.png";
     }
@@ -553,6 +556,15 @@ QString mainmenuwindow::getTimeOfDayGreeting(){
 void mainmenuwindow::on_PBMainMenuUsers_clicked()
 {
     UserTableWindow window(currentUser,this);
+    window.setModal(true);
+    window.exec();
+    window.deleteLater();
+}
+
+
+void mainmenuwindow::on_PBMainMenuReports_clicked()
+{
+    ReportWindow window(this);
     window.setModal(true);
     window.exec();
     window.deleteLater();
