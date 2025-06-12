@@ -116,17 +116,15 @@ void ReportWindow::on_PBVisits_clicked()
 
 void ReportWindow::on_PBPayments_clicked()
 {
-    // Получаем выбранные месяц и год
     int month = ui->comboBox->currentIndex() + 1;
     int year = ui->spinBox->value();
     QString db = Database().getDbName();
 
-    // Формируем имя файла
     QString fileName = QFileDialog::getSaveFileName(this,
-                                                    "Сохранить отчет о платежах",
-                                                    QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) +
-                                                        QString("/payments_report_%1_%2.txt").arg(month).arg(year),
-                                                    "Текстовые файлы (*.txt)");
+                        "Сохранить отчет о платежах",
+                        QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) +
+                        QString("/payments_report_%1_%2.txt").arg(month).arg(year),
+                        "Текстовые файлы (*.txt)");
 
     if (fileName.isEmpty()) {
         return;
@@ -141,13 +139,12 @@ void ReportWindow::on_PBPayments_clicked()
     QTextStream out(&file);
     out.setEncoding(QStringConverter::Utf8);
 
-    // Заголовок отчета
+
     out << QString("Отчет о платежах за %1 %2 года\n")
                .arg(ui->comboBox->currentText())
                .arg(year);
     out << "Сгенерирован: " << QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm") << "\n\n";
 
-    // SQL-запрос
     QSqlQuery query(QSqlDatabase::database(Database().getTitle()));
     query.prepare(
         "select "
@@ -173,7 +170,6 @@ void ReportWindow::on_PBPayments_clicked()
         return;
     }
 
-    // Заголовки столбцов
     out << QString("%1\t%2\t%3\t%4\n")
                .arg("Дата", -20)
                .arg("Пациент", -30)
@@ -182,7 +178,6 @@ void ReportWindow::on_PBPayments_clicked()
 
     out << QString().fill('-', 120) << "\n";
 
-    // Данные
     double totalAmount = 0;
     while (query.next()) {
         double amount = query.value("amount").toDouble();
@@ -195,17 +190,10 @@ void ReportWindow::on_PBPayments_clicked()
                    .arg(query.value("purpose").toString(), -30);
     }
 
-    // Итоговая сумма
     out << "\nИтого: " << QString::number(totalAmount, 'f', 2) << "\n";
 
-    // Явное закрытие файла с проверкой
     file.close();
-    if (!file.error() == QFile::NoError) {
-        QMessageBox::warning(this, "Ошибка", "Ошибка при сохранении файла: " + file.errorString());
-        return;
-    }
 
-    // Проверка существования файла
     if (QFile::exists(fileName)) {
         QMessageBox::information(this, "Успех", "Отчет успешно сохранен в файл:\n" + fileName);
     } else {

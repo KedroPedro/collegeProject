@@ -2156,7 +2156,7 @@ border-top-right-radius:40;</string>
                      <number>3</number>
                     </property>
                     <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignRight">
-                     <widget class="QWidget" name="widget_100" native="true">
+                     <widget class="QWidget" name="MainMenuAdminPanel" native="true">
                       <layout class="QGridLayout" name="gridLayout_71">
                        <property name="topMargin">
                         <number>0</number>
